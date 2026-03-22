@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  body {
+    @apply m-0 min-h-screen bg-bg font-sans text-base leading-relaxed text-ink antialiased;
+  }
+}
+
+/* Range slider — match original webkit styling */
+input[type='range'].slider-primary {
+  -webkit-appearance: none;
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: #e8ddd0;
+  outline: none;
+}
+
+input[type='range'].slider-primary::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #8b4513;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type='range'].slider-primary::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: #e8ddd0;
+}
+
+input[type='range'].slider-primary::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #8b4513;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-intro strong {
+  color: #8b4513;
+}
