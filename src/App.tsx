@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { useCallback, useMemo, useState } from 'react';
 import { parseLoafSizeInput, toGrams } from './calculations';
 import { CalculatorTab } from './components/CalculatorTab';
@@ -139,6 +140,7 @@ export default function App() {
       <footer className="mx-auto max-w-[680px] border-t border-border px-6 py-8 text-center text-xs text-muted">
         {tr.footer}
       </footer>
+   <Analytics />
     </div>
   );
 }
