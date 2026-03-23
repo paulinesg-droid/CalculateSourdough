@@ -2,7 +2,7 @@ export type Lang = 'en' | 'sv' | 'de';
 export type Unit = 'metric' | 'imperial';
 export type StyleId = 'fluffy' | 'classic' | 'artisan' | 'wet';
 export type RegionFilter = 'all' | 'eu' | 'us';
-export type TabId = 'calculator' | 'recipe';
+export type TabId = 'calculator' | 'starter' | 'recipe' | 'blog';
 
 export interface StyleDef {
   id: StyleId;
@@ -39,7 +39,9 @@ export type PhasesFn = (
 export interface LocaleStrings {
   tagline: string;
   tabCalc: string;
+  tabStarter: string;
   tabRecipe: string;
+  tabBlog: string;
   styleQuestion: string;
   labelLoafSize: string;
   labelLoaves: string;

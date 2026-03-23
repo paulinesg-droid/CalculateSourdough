@@ -4,7 +4,9 @@ export const de: LocaleStrings = {
   tagline:
     'Perfekte Verhältnisse für dein perfektes Brot. Passe die Einstellungen unten an und dein Rezept aktualisiert sich sofort.',
   tabCalc: 'Rechner',
+  tabStarter: 'Sourdough starter',
   tabRecipe: 'Schritt-für-Schritt Rezept',
+  tabBlog: 'Blog',
   styleQuestion: 'Wie soll dein Brot werden?',
   labelLoafSize: 'Brotgröße',
   labelLoaves: 'Anzahl Brote',

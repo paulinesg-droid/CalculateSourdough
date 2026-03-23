@@ -4,7 +4,9 @@ export const sv: LocaleStrings = {
   tagline:
     'Perfekta proportioner för ditt perfekta bröd. Justera inställningarna nedan så uppdateras receptet direkt.',
   tabCalc: 'Kalkylator',
+  tabStarter: 'Sourdough starter',
   tabRecipe: 'Steg-för-steg recept',
+  tabBlog: 'Blog',
   styleQuestion: 'Hur vill du att brödet ska bli?',
   labelLoafSize: 'Brödets vikt',
   labelLoaves: 'Antal bröd',

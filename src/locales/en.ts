@@ -4,7 +4,9 @@ export const en: LocaleStrings = {
   tagline:
     'Perfect ratios for your perfect loaf. Adjust the settings below and your recipe updates instantly.',
   tabCalc: 'Calculator',
+  tabStarter: 'Sourdough starter',
   tabRecipe: 'Step-by-step recipe',
+  tabBlog: 'Blog',
   styleQuestion: 'How should your bread turn out?',
   labelLoafSize: 'Loaf size',
   labelLoaves: 'Number of loaves',

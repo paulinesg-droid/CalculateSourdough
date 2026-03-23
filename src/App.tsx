@@ -3,6 +3,8 @@ import { parseLoafSizeInput, toGrams } from './calculations';
 import { CalculatorTab } from './components/CalculatorTab';
 import { Header } from './components/Header';
 import { RecipeTab } from './components/RecipeTab';
+import { StarterTab } from './components/StarterTab';
+import { BlogTab } from './components/BlogTab';
 import { t } from './locales';
 import type { Lang, RegionFilter, StyleId, TabId, Unit } from './types';
 
@@ -63,12 +65,30 @@ export default function App() {
           </button>
           <button
             type="button"
+            onClick={() => setActiveTab('starter')}
+            className={`tab-btn -mb-0.5 cursor-pointer border-b-2 border-transparent bg-transparent px-4 py-2.5 font-sans text-sm font-medium transition-all duration-200 min-[481px]:px-5 min-[481px]:text-sm ${
+              activeTab === 'starter' ? 'border-primary text-primary' : 'text-muted'
+            }`}
+          >
+            {tr.tabStarter}
+          </button>
+          <button
+            type="button"
             onClick={() => setActiveTab('recipe')}
             className={`tab-btn -mb-0.5 cursor-pointer border-b-2 border-transparent bg-transparent px-3.5 py-2.5 font-sans text-sm font-medium transition-all duration-200 min-[481px]:px-5 min-[481px]:text-sm ${
               activeTab === 'recipe' ? 'border-primary text-primary' : 'text-muted'
             }`}
           >
             {tr.tabRecipe}
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('blog')}
+            className={`tab-btn -mb-0.5 cursor-pointer border-b-2 border-transparent bg-transparent px-3.5 py-2.5 font-sans text-sm font-medium transition-all duration-200 min-[481px]:px-5 min-[481px]:text-sm ${
+              activeTab === 'blog' ? 'border-primary text-primary' : 'text-muted'
+            }`}
+          >
+            {tr.tabBlog}
           </button>
         </div>
 
@@ -92,6 +112,10 @@ export default function App() {
           />
         </div>
 
+        <div className={activeTab === 'starter' ? 'block' : 'hidden'}>
+          <StarterTab />
+        </div>
+
         <div className={activeTab === 'recipe' ? 'block' : 'hidden'}>
           <RecipeTab
             tr={tr}
@@ -105,6 +129,10 @@ export default function App() {
             onToggleStep={toggleStep}
             onResetSteps={resetSteps}
           />
+        </div>
+
+        <div className={activeTab === 'blog' ? 'block' : 'hidden'}>
+          <BlogTab />
         </div>
       </main>
 
