@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import type { LocaleStrings } from '../types';
 
 type BlogPost = {
   title: string;
@@ -59,22 +60,25 @@ Still struggling? Try dropping your hydration to 65% using the calculator above.
   },
 ];
 
-export function BlogTab() {
+export function BlogTab({ tr }: { tr: LocaleStrings }) {
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
+  const posts = tr.blogTab?.posts ?? BLOG_POSTS;
   const postsWithExcerpt = useMemo(
     () =>
-      BLOG_POSTS.map((p, idx) => ({
+      posts.map((p, idx) => ({
         ...p,
         idx,
         excerpt: firstTwoSentences(p.content),
       })),
-    []
+    [posts]
   );
 
   return (
     <div>
-      <div className="mb-4 font-display text-[1.1rem] font-semibold text-primary">Blog</div>
+      <div className="mb-4 font-display text-[1.1rem] font-semibold text-primary">
+        {tr.blogTab?.sectionTitle ?? 'Blog'}
+      </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {postsWithExcerpt.map((p) => {

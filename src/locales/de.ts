@@ -4,7 +4,7 @@ export const de: LocaleStrings = {
   tagline:
     'Perfekte Verhältnisse für dein perfektes Brot. Passe die Einstellungen unten an und dein Rezept aktualisiert sich sofort.',
   tabCalc: 'Rechner',
-  tabStarter: 'Sourdough starter',
+  tabStarter: 'Sauerteig-Starter',
   tabRecipe: 'Schritt-für-Schritt Rezept',
   tabBlog: 'Blog',
   styleQuestion: 'Wie soll dein Brot werden?',
@@ -27,6 +27,21 @@ export const de: LocaleStrings = {
   stepsOf: (d, t) => `${d} von ${t} Schritten abgeschlossen`,
   recipeIntro: (loaves, loafW, style, h, sp, salt, flour, water, starter, saltA) =>
     `Backen von <strong>${loaves} × ${loafW} ${style}</strong> — ${h}% Hydration, ${sp}% Starter, ${salt}% Salz.<br>Gesamt: <strong>${flour}</strong> Mehl · <strong>${water}</strong> Wasser · <strong>${starter}</strong> Starter · <strong>${saltA}</strong> Salz. Gehe zum Rechner-Tab zum Ändern.`,
+
+  starterTab: {
+    heading: 'So stellst du deinen Sauerteig-Starter her',
+    intro:
+      'Ein Sauerteig-Starter ist eine lebende Kultur aus wilden Hefen und Bakterien. Die Herstellung dauert 7 Tage und die tägliche Pflege nur 5 Minuten. Hier ist alles, was du brauchst.',
+    whatYouNeedHeading: 'Was du brauchst',
+    whatYouNeedItems: [
+      'Mehl (Vollkorn- oder Roggenmehl funktioniert am besten)',
+      'Wasser (Raumtemperatur, möglichst ohne Chlor)',
+      'Ein sauberes Glas',
+      'Eine Küchenwaage',
+    ],
+    dayByDayHeading: 'Tag für Tag',
+  },
+
   styles: [
     {
       id: 'fluffy',

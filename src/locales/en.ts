@@ -27,6 +27,21 @@ export const en: LocaleStrings = {
   stepsOf: (d, t) => `${d} of ${t} steps completed`,
   recipeIntro: (loaves, loafW, style, h, sp, salt, flour, water, starter, saltA) =>
     `Baking <strong>${loaves} × ${loafW} ${style}</strong> — ${h}% hydration, ${sp}% starter, ${salt}% salt.<br>Total: <strong>${flour}</strong> flour · <strong>${water}</strong> water · <strong>${starter}</strong> starter · <strong>${saltA}</strong> salt. Go to the Calculator tab to adjust.`,
+
+  starterTab: {
+    heading: 'How to make your sourdough starter from scratch',
+    intro:
+      "A sourdough starter is a living culture of wild yeast and bacteria. It takes 7 days to create from scratch and just 5 minutes a day to maintain. Here's everything you need.",
+    whatYouNeedHeading: 'What you need',
+    whatYouNeedItems: [
+      'Flour (wholemeal or rye works best to begin)',
+      'Water (room temperature, unchlorinated if possible)',
+      'A clean glass jar',
+      'A kitchen scale',
+    ],
+    dayByDayHeading: 'Day by Day Guide',
+  },
+
   styles: [
     {
       id: 'fluffy',

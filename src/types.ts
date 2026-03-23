@@ -76,6 +76,29 @@ export interface LocaleStrings {
   hydration: string;
   phases: PhasesFn;
   footer: string;
+
+  starterTab?: {
+    heading: string;
+    intro: string;
+    whatYouNeedHeading: string;
+    whatYouNeedItems: string[];
+    dayByDayHeading: string;
+    dayByDaySteps?: { label: string; text: string }[];
+    feedingRatioHeading?: string;
+    maintenanceHeading?: string;
+    maintenanceItems?: string[];
+    maintenanceRatio?: string;
+    bakingDayHeading?: string;
+    bakingDayItems?: string[];
+    bakingDayRatio?: string;
+    tipsHeading?: string;
+    tips?: string[];
+  };
+
+  blogTab?: {
+    sectionTitle?: string;
+    posts?: { title: string; content: string }[];
+  };
 }
 
 export interface ProductItem {

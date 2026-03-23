@@ -113,7 +113,7 @@ export default function App() {
         </div>
 
         <div className={activeTab === 'starter' ? 'block' : 'hidden'}>
-          <StarterTab />
+          <StarterTab tr={tr} />
         </div>
 
         <div className={activeTab === 'recipe' ? 'block' : 'hidden'}>
@@ -132,7 +132,7 @@ export default function App() {
         </div>
 
         <div className={activeTab === 'blog' ? 'block' : 'hidden'}>
-          <BlogTab />
+          <BlogTab tr={tr} />
         </div>
       </main>
 

@@ -4,7 +4,7 @@ export const sv: LocaleStrings = {
   tagline:
     'Perfekta proportioner för ditt perfekta bröd. Justera inställningarna nedan så uppdateras receptet direkt.',
   tabCalc: 'Kalkylator',
-  tabStarter: 'Sourdough starter',
+  tabStarter: 'Surdegsstarter',
   tabRecipe: 'Steg-för-steg recept',
   tabBlog: 'Blog',
   styleQuestion: 'Hur vill du att brödet ska bli?',
@@ -26,6 +26,21 @@ export const sv: LocaleStrings = {
   stepsOf: (d, t) => `${d} av ${t} steg klara`,
   recipeIntro: (loaves, loafW, style, h, sp, salt, flour, water, starter, saltA) =>
     `Bakar <strong>${loaves} × ${loafW} ${style}</strong> — ${h}% hydrering, ${sp}% surdeg, ${salt}% salt.<br>Totalt: <strong>${flour}</strong> mjöl · <strong>${water}</strong> vatten · <strong>${starter}</strong> surdeg · <strong>${saltA}</strong> salt. Gå till kalkylatorn för att ändra.`,
+
+  starterTab: {
+    heading: 'Så gör du din surdegsstarter från grunden',
+    intro:
+      'En surdegsstarter är en levande kultur av vilda jästsvampar och bakterier. Det tar 7 dagar att skapa från grunden och bara 5 minuter om dagen att underhålla. Här är allt du behöver.',
+    whatYouNeedHeading: 'Det här behöver du',
+    whatYouNeedItems: [
+      'Mjöl (fullkorns- eller rågmjöl fungerar bäst att börja med)',
+      'Vatten (rumstempererat, helst utan klor)',
+      'En ren glasburk',
+      'En köksvåg',
+    ],
+    dayByDayHeading: 'Dag för dag',
+  },
+
   styles: [
     {
       id: 'fluffy',
