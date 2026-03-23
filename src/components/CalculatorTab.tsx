@@ -301,7 +301,11 @@ export function CalculatorTab({
                   >
                     {tr.shopNow}
                   </a>
-                ) : null}
+                ) : (
+                  <span className="rounded-lg border border-border bg-bg px-2 py-0.5 text-[10px] font-medium text-muted">
+                    Coming soon
+                  </span>
+                )}
               </div>
             </div>
           ))}
