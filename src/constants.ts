@@ -17,20 +17,7 @@ export const PRODUCTS: ProductItem[] = [
     region: 'both',
     emoji: '🫕',
     desc: 'Cast iron for a perfect crust every time',
-  },
-  {
-    name: 'King Arthur Bread Flour',
-    category: 'flour',
-    region: 'us',
-    emoji: '🌾',
-    desc: 'High-protein flour loved by sourdough bakers',
-  },
-  {
-    name: 'Shipton Mill Strong White',
-    category: 'flour',
-    region: 'eu',
-    emoji: '🌾',
-    desc: 'Premium stone-ground bread flour',
+    affiliateUrl: 'https://www.amazon.com/dp/B00063RWYI?tag=calculatesourdough-20'
   },
   {
     name: 'Banneton Proofing Basket Set',
@@ -38,13 +25,15 @@ export const PRODUCTS: ProductItem[] = [
     region: 'both',
     emoji: '🧺',
     desc: '9" round banneton with linen liner',
+    affiliateUrl: 'https://www.amazon.com/dp/B09HH4K1LZ?tag=calculatesourdough-20'
   },
   {
-    name: 'Cultures for Health Starter',
-    category: 'starter',
-    region: 'both',
-    emoji: '🫙',
-    desc: 'Dried starter kit, ready in 5 days',
+    name: 'OXO Good Grips Kitchen Scale',
+    category: 'tools',
+    region: 'us',
+    emoji: '⚖️',
+    desc: 'Pull-out display so large bowls never block the screen',
+    affiliateUrl: 'https://www.amazon.com/dp/B079D9B82W?tag=calculatesourdough-20',
   },
   {
     name: 'Tartine Bread — Chad Robertson',
@@ -52,6 +41,7 @@ export const PRODUCTS: ProductItem[] = [
     region: 'both',
     emoji: '📖',
     desc: 'The definitive sourdough bread book',
+    affiliateUrl: 'https://www.amazon.com/dp/0811870413?tag=calculatesourdough-20'
   },
   {
     name: "Bob's Red Mill Artisan Flour",
@@ -66,5 +56,22 @@ export const PRODUCTS: ProductItem[] = [
     region: 'eu',
     emoji: '🫕',
     desc: 'Premium enamelled cast iron for the serious baker',
+    affiliateUrl: 'https://www.amazon.com/dp/B00VA5HG0Q?tag=calculatesourdough-20'
   },
-];
+{
+  name: 'Shipton Mill Strong White',
+  category: 'flour',
+  region: 'eu',
+  emoji: '🌾',
+  desc: 'Premium stone-ground bread flour',
+  affiliateUrl: 'https://www.amazon.com/dp/B00P6EQW6G?tag=calculatesourdough-20'
+},
+{
+  name: 'Zojirushi Home Bakery Virtuoso Plus',
+  category: 'tools',
+  region: 'us',
+  emoji: '🍞',
+  desc: 'Set-it-and-forget-it bread machine with a sourdough starter setting',
+  affiliateUrl: 'https://www.amazon.com/dp/B07BQ28TQ6?tag=calculatesourdough-20',
+}
+]
