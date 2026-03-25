@@ -4,6 +4,7 @@ import type { LocaleStrings } from '../types';
 type BlogPost = {
   title: string;
   content: string;
+  image?: string;
 };
 
 function firstTwoSentences(text: string) {
@@ -16,6 +17,7 @@ function firstTwoSentences(text: string) {
 const BLOG_POSTS: BlogPost[] = [
   {
     title: "I Spent a Year Lost in the Sourdough Jungle — Here's What Actually Works",
+    image: '/IMG_4102.jpg',
     content: `If you've ever searched "how to make sourdough" you'll know exactly what I mean by the jungle. Autolyse or no autolyse? 65% hydration or 80%? Feed your starter twice a day or once a week? Cold proof or room temperature? Dutch oven or baking stone? Score once or five times?
 
 I spent over a year trying to find the right way to make sourdough bread. I followed strict recipes from award-winning bakers. I joined forums where people argued passionately about flour protein content. I killed three starters. I produced loaves that could double as doorstops.
@@ -58,6 +60,11 @@ The temperature factor: fermentation slows dramatically in cold kitchens. If you
 
 Still struggling? Try dropping your hydration to 65% using the calculator above.`,
   },
+  {
+    title: 'The Bread I Almost Ruined (But Everyone Loved)',
+    image: '/IMG_4108.jpg',
+    content: `I forgot the flour dusting. I botched the scoring. The crust cracked in all the wrong places — and yet, this sourdough loaf turned out to be one of the best I've ever baked. My husband said so. My 6 and 7-year-old kids said so. Even the cat jumped up to investigate, which in our house is the highest possible compliment. Sometimes the imperfect loaves are the ones that remind you why you started baking sourdough in the first place. No two loaves are ever the same — and that's exactly the point. Keywords naturally included: homemade sourdough bread, sourdough for beginners, sourdough mistakes, best sourdough recipe, artisan bread at home.`,
+  },
 ];
 
 export function BlogTab({ tr }: { tr: LocaleStrings }) {
@@ -86,24 +93,33 @@ export function BlogTab({ tr }: { tr: LocaleStrings }) {
           return (
             <div
               key={p.title}
-              className="rounded-[14px] border border-border bg-white p-5"
+              className="overflow-hidden rounded-[14px] border border-border bg-white"
             >
-              <div className="mb-2 font-display text-base font-semibold text-primary">{p.title}</div>
-              <div className="mb-3 text-[13px] leading-relaxed text-muted">{p.excerpt}</div>
-
-              {isOpen ? (
-                <div className="mb-3 whitespace-pre-line text-[13px] leading-relaxed text-muted">
-                  {p.content}
-                </div>
+              {p.image ? (
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="h-[200px] w-full rounded-t-[14px] object-cover"
+                />
               ) : null}
+              <div className="p-5">
+                <div className="mb-2 font-display text-base font-semibold text-primary">{p.title}</div>
+                <div className="mb-3 text-[13px] leading-relaxed text-muted">{p.excerpt}</div>
 
-              <button
-                type="button"
-                className="cursor-pointer rounded-[10px] border border-border bg-transparent px-3.5 py-1.5 font-sans text-xs font-medium text-muted transition-all duration-150 hover:border-primary hover:text-primary"
-                onClick={() => setExpanded((s) => ({ ...s, [p.idx]: !s[p.idx] }))}
-              >
-                Read more
-              </button>
+                {isOpen ? (
+                  <div className="mb-3 whitespace-pre-line text-[13px] leading-relaxed text-muted">
+                    {p.content}
+                  </div>
+                ) : null}
+
+                <button
+                  type="button"
+                  className="cursor-pointer rounded-[10px] border border-border bg-transparent px-3.5 py-1.5 font-sans text-xs font-medium text-muted transition-all duration-150 hover:border-primary hover:text-primary"
+                  onClick={() => setExpanded((s) => ({ ...s, [p.idx]: !s[p.idx] }))}
+                >
+                  Read more
+                </button>
+              </div>
             </div>
           );
         })}

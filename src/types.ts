@@ -98,7 +98,7 @@ export interface LocaleStrings {
 
   blogTab?: {
     sectionTitle?: string;
-    posts?: { title: string; content: string }[];
+    posts?: { title: string; content: string; image?: string }[];
   };
 }
 
