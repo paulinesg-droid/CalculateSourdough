@@ -7,6 +7,12 @@ type BlogPost = {
   image?: string;
 };
 
+/** Public-folder URLs must respect Vite `base` (e.g. GitHub Pages subpaths). */
+function publicAssetUrl(path: string) {
+  const trimmed = path.replace(/^\//, '');
+  return `${import.meta.env.BASE_URL}${trimmed}`;
+}
+
 function firstTwoSentences(text: string) {
   const normalized = text.replace(/\s+/g, ' ').trim();
   const marked = normalized.replace(/([.!?])\s+/g, '$1|');
@@ -97,9 +103,11 @@ export function BlogTab({ tr }: { tr: LocaleStrings }) {
             >
               {p.image ? (
                 <img
-                  src={p.image}
-                  alt={p.title}
-                  className="h-[200px] w-full rounded-t-[14px] object-cover"
+                  src={publicAssetUrl(p.image)}
+                  alt=""
+                  decoding="async"
+                  loading="lazy"
+                  className="block h-[200px] w-full rounded-t-[14px] object-cover"
                 />
               ) : null}
               <div className="p-5">
