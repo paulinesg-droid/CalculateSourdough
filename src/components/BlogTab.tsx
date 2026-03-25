@@ -1,24 +1,15 @@
 import { useMemo, useState } from 'react';
-import imgCat from '../assets/blog/IMG_4108.jpg';
-import imgJungle from '../assets/blog/IMG_4102.jpg';
 import type { LocaleStrings } from '../types';
+
+// Bundled from src/assets/blog/ (paths relative to this file: ../assets/blog/…)
+import imgCatUrl from '../assets/blog/IMG_4108.jpg?url';
+import imgJungleUrl from '../assets/blog/IMG_4102.jpg?url';
 
 type BlogPost = {
   title: string;
   content: string;
   image?: string;
 };
-
-/** Vite-resolved /assets/… URLs, http(s), or a public filename joined with BASE_URL. */
-function blogImageSrc(urlOrFilename: string): string {
-  if (urlOrFilename.startsWith('http://') || urlOrFilename.startsWith('https://')) {
-    return urlOrFilename;
-  }
-  if (urlOrFilename.includes('/assets/')) {
-    return urlOrFilename;
-  }
-  return `${import.meta.env.BASE_URL}${urlOrFilename.replace(/^\//, '')}`;
-}
 
 function firstTwoSentences(text: string) {
   const normalized = text.replace(/\s+/g, ' ').trim();
@@ -30,7 +21,7 @@ function firstTwoSentences(text: string) {
 const BLOG_POSTS: BlogPost[] = [
   {
     title: "I Spent a Year Lost in the Sourdough Jungle — Here's What Actually Works",
-    image: imgJungle,
+    image: imgJungleUrl,
     content: `If you've ever searched "how to make sourdough" you'll know exactly what I mean by the jungle. Autolyse or no autolyse? 65% hydration or 80%? Feed your starter twice a day or once a week? Cold proof or room temperature? Dutch oven or baking stone? Score once or five times?
 
 I spent over a year trying to find the right way to make sourdough bread. I followed strict recipes from award-winning bakers. I joined forums where people argued passionately about flour protein content. I killed three starters. I produced loaves that could double as doorstops.
@@ -75,7 +66,7 @@ Still struggling? Try dropping your hydration to 65% using the calculator above.
   },
   {
     title: 'The Bread I Almost Ruined (But Everyone Loved)',
-    image: imgCat,
+    image: imgCatUrl,
     content: `I forgot the flour dusting. I botched the scoring. The crust cracked in all the wrong places — and yet, this sourdough loaf turned out to be one of the best I've ever baked. My husband said so. My 6 and 7-year-old kids said so. Even the cat jumped up to investigate, which in our house is the highest possible compliment. Sometimes the imperfect loaves are the ones that remind you why you started baking sourdough in the first place. No two loaves are ever the same — and that's exactly the point. Keywords naturally included: homemade sourdough bread, sourdough for beginners, sourdough mistakes, best sourdough recipe, artisan bread at home.`,
   },
 ];
@@ -110,11 +101,10 @@ export function BlogTab({ tr }: { tr: LocaleStrings }) {
             >
               {p.image ? (
                 <img
-                  src={blogImageSrc(p.image)}
+                  src={p.image}
                   alt=""
                   decoding="async"
-                  fetchPriority="low"
-                  className="block h-[200px] w-full rounded-t-[14px] object-cover"
+                  className="block h-[200px] w-full min-h-[200px] rounded-t-[14px] object-cover"
                 />
               ) : null}
               <div className="p-5">
