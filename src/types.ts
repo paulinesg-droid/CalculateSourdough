@@ -108,4 +108,5 @@ export interface ProductItem {
   region: 'eu' | 'us' | 'both';
   emoji: string;
   desc: string;
+  affiliateUrl?: string;
 }

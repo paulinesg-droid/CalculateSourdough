@@ -292,11 +292,11 @@ export function CalculatorTab({
                 <span className="rounded-lg bg-accent-light px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-primary">
                   {p.region === 'both' ? 'EU & US' : p.region.toUpperCase()}
                 </span>
-                {p.name === 'Banneton Proofing Basket Set' ? (
+                {p.affiliateUrl ? (
                   <a
-                    href="https://www.amazon.se/dp/B0DK8YC1DY"
+                    href={p.affiliateUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer sponsored"
                     className="shop-btn cursor-pointer rounded-[10px] border-[1.5px] border-primary bg-transparent px-3 py-1.5 font-sans text-xs font-medium text-primary no-underline transition-all duration-150 hover:bg-primary hover:text-white"
                   >
                     {tr.shopNow}
