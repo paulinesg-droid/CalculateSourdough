@@ -219,4 +219,6 @@ export const en: LocaleStrings = {
     },
   ],
   footer: 'SourdoughCalculate — free forever. Affiliate links help keep this tool free.',
+  footerAmazonDisclaimer:
+    'As an Amazon Associate I earn from qualifying purchases.',
 };

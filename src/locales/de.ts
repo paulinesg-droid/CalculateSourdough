@@ -219,4 +219,6 @@ export const de: LocaleStrings = {
     },
   ],
   footer: 'SourdoughCalculate — für immer kostenlos. Affiliate-Links helfen uns, dieses Tool kostenlos zu halten.',
+  footerAmazonDisclaimer:
+    'Als Amazon-Partner verdiene ich an qualifizierten Käufen.',
 };

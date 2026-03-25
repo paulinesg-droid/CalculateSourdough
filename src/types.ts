@@ -76,6 +76,7 @@ export interface LocaleStrings {
   hydration: string;
   phases: PhasesFn;
   footer: string;
+  footerAmazonDisclaimer: string;
 
   starterTab?: {
     heading: string;

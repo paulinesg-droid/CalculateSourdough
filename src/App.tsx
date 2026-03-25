@@ -138,7 +138,10 @@ export default function App() {
       </main>
 
       <footer className="mx-auto max-w-[680px] border-t border-border px-6 py-8 text-center text-xs text-muted">
-        {tr.footer}
+        <p>{tr.footer}</p>
+        <p className="mt-2.5 max-w-md mx-auto text-[0.65rem] leading-snug text-muted/65">
+          {tr.footerAmazonDisclaimer}
+        </p>
       </footer>
    <Analytics />
     </div>

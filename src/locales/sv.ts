@@ -218,4 +218,6 @@ export const sv: LocaleStrings = {
     },
   ],
   footer: 'SourdoughCalculate — alltid gratis. Affiliatelänkar hjälper oss hålla verktyget kostnadsfritt.',
+  footerAmazonDisclaimer:
+    'Som Amazon-partner tjänar jag på kvalificerade köp.',
 };
