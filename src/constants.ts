@@ -67,11 +67,11 @@ export const PRODUCTS: ProductItem[] = [
   affiliateUrl: 'https://www.amazon.com/dp/B00P6EQW6G?tag=calculatesourdough-20'
 },
 {
-  name: 'Zojirushi Home Bakery Virtuoso Plus',
+  name: 'KitchenAid Commercial Stand Mixer',
   category: 'tools',
   region: 'us',
-  emoji: '🍞',
-  desc: 'Set-it-and-forget-it bread machine with a sourdough starter setting',
-  affiliateUrl: 'https://www.amazon.com/dp/B07BQ28TQ6?tag=calculatesourdough-20',
+  emoji: '🥣',
+  desc: 'Professional 8-quart stand mixer for serious home bakers',
+  affiliateUrl: 'https://www.amazon.com/dp/B0BJXYXYD1?tag=calculatesourdough-20',
 }
 ]
