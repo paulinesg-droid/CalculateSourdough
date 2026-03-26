@@ -91,6 +91,10 @@ export interface LocaleStrings {
   readMoreBlog: string;
   filterAll: string;
   comingSoonProduct: string;
+  /** Calculator: link to Starter tab */
+  calcLinkNoStarter: string;
+  /** Calculator: link to Recipe tab after amounts */
+  calcLinkToRecipe: string;
 
   starterTab?: {
     heading: string;

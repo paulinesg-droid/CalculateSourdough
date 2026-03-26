@@ -231,6 +231,8 @@ export const sv: LocaleStrings = {
   readMoreBlog: 'Läs mer',
   filterAll: 'Alla',
   comingSoonProduct: 'Kommer snart',
+  calcLinkNoStarter: 'Ingen surdeg än? Så här gör du en egen →',
+  calcLinkToRecipe: 'Steg för steg när du ska baka — jag guidar dig →',
   blogTab: {
     sectionTitle: 'Blogg',
   },

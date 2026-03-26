@@ -155,6 +155,8 @@ export default function App() {
             onSaltPct={setSaltPct}
             onPreset={handlePreset}
             onRegionFilter={setRegionFilter}
+            onGoToStarter={() => setActiveTab('starter')}
+            onGoToRecipe={() => setActiveTab('recipe')}
           />
         </div>
 

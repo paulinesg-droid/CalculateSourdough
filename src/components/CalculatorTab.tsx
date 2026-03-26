@@ -25,6 +25,8 @@ interface CalculatorTabProps {
   onSaltPct: (v: number) => void;
   onPreset: (n: number) => void;
   onRegionFilter: (r: RegionFilter) => void;
+  onGoToStarter: () => void;
+  onGoToRecipe: () => void;
 }
 
 export function CalculatorTab({
@@ -43,6 +45,8 @@ export function CalculatorTab({
   onSaltPct,
   onPreset,
   onRegionFilter,
+  onGoToStarter,
+  onGoToRecipe,
 }: CalculatorTabProps) {
   const loafNum = parseLoafSizeInput(loafSizeStr, unit);
   const v = calcValues(loafNum, unit, selectedStyleId, starterPct, saltPct);
@@ -176,7 +180,16 @@ export function CalculatorTab({
             />
             <div className="min-w-[42px] text-right text-lg font-medium text-primary">{starterPct}%</div>
           </div>
-          <div className="input-hint mt-1.5 text-[11px] leading-snug text-accent">{tr.hintStarter}</div>
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={onGoToStarter}
+              className="min-h-[44px] w-full touch-manipulation rounded-[12px] border-[1.5px] border-primary bg-primary px-4 py-2.5 text-center font-sans text-[13px] font-semibold leading-snug text-white shadow-sm transition-all hover:bg-primary-light hover:shadow active:scale-[0.99] sm:text-sm"
+            >
+              {tr.calcLinkNoStarter}
+            </button>
+          </div>
+          <div className="input-hint mt-2.5 text-[11px] leading-snug text-accent">{tr.hintStarter}</div>
         </div>
 
         <div className="col-span-1 min-[481px]:col-span-2 rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
@@ -257,7 +270,16 @@ export function CalculatorTab({
             </div>
           </div>
         </div>
-        <div className="coming-soon mt-2.5 text-center text-[11px] italic text-muted">
+        <div className="mt-4 border-t border-border pt-4">
+          <button
+            type="button"
+            onClick={onGoToRecipe}
+            className="min-h-[48px] w-full touch-manipulation rounded-[12px] border-2 border-primary/35 bg-white px-4 py-3 text-center font-sans text-[13px] font-semibold leading-snug text-primary shadow-sm transition-all hover:border-primary hover:bg-bg2 hover:shadow-md active:scale-[0.99] sm:text-sm"
+          >
+            {tr.calcLinkToRecipe}
+          </button>
+        </div>
+        <div className="coming-soon mt-3 text-center text-[11px] italic text-muted">
           {tr.comingSoon}
         </div>
       </div>
