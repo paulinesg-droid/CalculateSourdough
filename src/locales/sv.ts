@@ -20,7 +20,11 @@ export const sv: LocaleStrings = {
   totalDough: 'Total degvikt',
   comingSoon: 'Kompensation för surdegsvätska — kommer snart',
   whatYouNeed: 'Det här behöver du',
+  youMightAlsoNeed: 'Du kanske också behöver',
   shopNow: 'Köp här →',
+  openCalculator: 'Öppna kalkylatorn →',
+  blogCalculatorCta:
+    'Redo att baka? Räkna ut exakt mjöl, vatten, surdeg och salt i kalkylatorn.',
   resetAll: 'Nollställ',
   tip: 'Tips',
   stepsOf: (d, t) => `${d} av ${t} steg klara`,

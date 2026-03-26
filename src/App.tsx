@@ -58,9 +58,9 @@ export default function App() {
     <div className="min-h-screen bg-bg">
       <Header lang={lang} unit={unit} onLang={setLang} onUnit={handleUnit} />
 
-      <main className="mx-auto max-w-[680px] px-6 pb-16 pt-6 sm:pt-8">
+      <main className="mx-auto max-w-[680px] px-4 pb-16 pt-6 max-[389px]:px-3 sm:px-6 sm:pt-8">
         <section
-          className="mb-10 rounded-[18px] border border-border bg-bg2 px-5 py-8 text-center sm:px-8 sm:py-10"
+          className="mb-8 rounded-[18px] border border-border bg-bg2 px-4 py-7 text-center sm:mb-10 sm:px-8 sm:py-10"
           aria-label="Introduction"
         >
           <h1 className="font-display text-[1.65rem] font-semibold leading-snug tracking-tight text-primary sm:text-3xl md:text-[2rem]">
@@ -76,18 +76,18 @@ export default function App() {
             <button
               type="button"
               onClick={scrollToCalculator}
-              className="inline-flex cursor-pointer items-center justify-center rounded-[12px] border-2 border-primary bg-primary px-5 py-3 font-sans text-sm font-medium text-white shadow-sm transition-all duration-150 hover:bg-primary-light hover:border-primary-light active:scale-[0.99] sm:px-7 sm:text-[15px]"
+              className="inline-flex min-h-[44px] cursor-pointer touch-manipulation items-center justify-center rounded-[12px] border-2 border-primary bg-primary px-6 py-3 font-sans text-sm font-medium text-white shadow-sm transition-all duration-150 hover:bg-primary-light hover:border-primary-light active:scale-[0.99] sm:px-7 sm:text-[15px]"
             >
               Calculate my recipe →
             </button>
           </div>
         </section>
 
-        <div className="tab-bar mb-8 flex gap-0 border-b-2 border-border">
+        <div className="tab-bar mb-8 flex flex-wrap gap-0 border-b-2 border-border">
           <button
             type="button"
             onClick={() => setActiveTab('calculator')}
-            className={`tab-btn -mb-0.5 cursor-pointer border-b-2 border-transparent bg-transparent px-5 py-2.5 font-sans text-sm font-medium transition-all duration-200 min-[481px]:px-5 ${
+            className={`tab-btn -mb-0.5 min-h-[44px] touch-manipulation cursor-pointer border-b-2 border-transparent bg-transparent px-3 py-2.5 font-sans text-[13px] font-medium transition-all duration-200 min-[390px]:px-4 min-[481px]:px-5 min-[481px]:text-sm ${
               activeTab === 'calculator'
                 ? 'border-primary text-primary'
                 : 'text-muted'
@@ -98,7 +98,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('starter')}
-            className={`tab-btn -mb-0.5 cursor-pointer border-b-2 border-transparent bg-transparent px-4 py-2.5 font-sans text-sm font-medium transition-all duration-200 min-[481px]:px-5 min-[481px]:text-sm ${
+            className={`tab-btn -mb-0.5 min-h-[44px] touch-manipulation cursor-pointer border-b-2 border-transparent bg-transparent px-2.5 py-2.5 font-sans text-[13px] font-medium transition-all duration-200 min-[390px]:px-3 min-[481px]:px-5 min-[481px]:text-sm ${
               activeTab === 'starter' ? 'border-primary text-primary' : 'text-muted'
             }`}
           >
@@ -107,7 +107,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('recipe')}
-            className={`tab-btn -mb-0.5 cursor-pointer border-b-2 border-transparent bg-transparent px-3.5 py-2.5 font-sans text-sm font-medium transition-all duration-200 min-[481px]:px-5 min-[481px]:text-sm ${
+            className={`tab-btn -mb-0.5 min-h-[44px] touch-manipulation cursor-pointer border-b-2 border-transparent bg-transparent px-2.5 py-2.5 font-sans text-[13px] font-medium transition-all duration-200 min-[390px]:px-3 min-[481px]:px-5 min-[481px]:text-sm ${
               activeTab === 'recipe' ? 'border-primary text-primary' : 'text-muted'
             }`}
           >
@@ -116,7 +116,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('blog')}
-            className={`tab-btn -mb-0.5 cursor-pointer border-b-2 border-transparent bg-transparent px-3.5 py-2.5 font-sans text-sm font-medium transition-all duration-200 min-[481px]:px-5 min-[481px]:text-sm ${
+            className={`tab-btn -mb-0.5 min-h-[44px] touch-manipulation cursor-pointer border-b-2 border-transparent bg-transparent px-2.5 py-2.5 font-sans text-[13px] font-medium transition-all duration-200 min-[390px]:px-3 min-[481px]:px-5 min-[481px]:text-sm ${
               activeTab === 'blog' ? 'border-primary text-primary' : 'text-muted'
             }`}
           >
@@ -164,11 +164,11 @@ export default function App() {
         </div>
 
         <div className={activeTab === 'blog' ? 'block' : 'hidden'}>
-          <BlogTab tr={tr} />
+          <BlogTab tr={tr} onOpenCalculator={scrollToCalculator} />
         </div>
       </main>
 
-      <footer className="mx-auto max-w-[680px] border-t border-border px-6 py-8 text-center text-xs text-muted">
+      <footer className="mx-auto max-w-[680px] border-t border-border px-4 py-8 text-center text-xs text-muted min-[390px]:px-6">
         <p>{tr.footer}</p>
         <p className="mt-2.5 max-w-md mx-auto text-[0.65rem] leading-snug text-muted/65">
           {tr.footerAmazonDisclaimer}

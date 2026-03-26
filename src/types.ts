@@ -55,7 +55,10 @@ export interface LocaleStrings {
   totalDough: string;
   comingSoon: string;
   whatYouNeed: string;
+  youMightAlsoNeed: string;
   shopNow: string;
+  openCalculator: string;
+  blogCalculatorCta: string;
   resetAll: string;
   tip: string;
   stepsOf: (d: number, t: number) => string;

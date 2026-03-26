@@ -21,7 +21,11 @@ export const de: LocaleStrings = {
   totalDough: 'Gesamtes Teiggewicht',
   comingSoon: 'Starter-Hydrationskompensation — demnächst verfügbar',
   whatYouNeed: 'Was du brauchst',
+  youMightAlsoNeed: 'Das könnte dir auch helfen',
   shopNow: 'Jetzt kaufen →',
+  openCalculator: 'Zum Rechner →',
+  blogCalculatorCta:
+    'Backen geplant? Berechne Mehl, Wasser, Starter und Salz exakt im Rechner.',
   resetAll: 'Alles zurücksetzen',
   tip: 'Tipp',
   stepsOf: (d, t) => `${d} von ${t} Schritten abgeschlossen`,

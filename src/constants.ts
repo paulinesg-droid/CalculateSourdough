@@ -73,5 +73,18 @@ export const PRODUCTS: ProductItem[] = [
   emoji: '🥣',
   desc: 'Professional 8-quart stand mixer for serious home bakers',
   affiliateUrl: 'https://www.amazon.com/dp/B0BJXYXYD1?tag=calculatesourdough-20',
+},
+];
+
+/** Dutch ovens + proofing basket — shown under calculator for internal linking & affiliates. */
+const SPOTLIGHT_PRODUCT_ORDER = [
+  'Lodge 5qt Dutch Oven',
+  'Le Creuset Signature Cocotte',
+  'Banneton Proofing Basket Set',
+] as const;
+
+export function spotlightProducts(): ProductItem[] {
+  return SPOTLIGHT_PRODUCT_ORDER.map((name) => PRODUCTS.find((p) => p.name === name)).filter(
+    (p): p is ProductItem => p != null
+  );
 }
-]

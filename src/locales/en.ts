@@ -21,7 +21,11 @@ export const en: LocaleStrings = {
   totalDough: 'Total dough weight',
   comingSoon: 'Starter hydration compensation — coming soon',
   whatYouNeed: "What you'll need",
+  youMightAlsoNeed: 'You might also need',
   shopNow: 'Shop now →',
+  openCalculator: 'Open calculator →',
+  blogCalculatorCta:
+    'Ready to plan your bake? Get exact flour, water, starter, and salt amounts in the calculator.',
   resetAll: 'Reset all',
   tip: 'Tip',
   stepsOf: (d, t) => `${d} of ${t} steps completed`,
