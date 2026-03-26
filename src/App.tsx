@@ -47,11 +47,42 @@ export default function App() {
     setLoafSizeStr(String(n));
   }, []);
 
+  const scrollToCalculator = useCallback(() => {
+    setActiveTab('calculator');
+    window.setTimeout(() => {
+      document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  }, []);
+
   return (
     <div className="min-h-screen bg-bg">
       <Header lang={lang} unit={unit} onLang={setLang} onUnit={handleUnit} />
 
-      <main className="mx-auto max-w-[680px] px-6 pb-16 pt-8">
+      <main className="mx-auto max-w-[680px] px-6 pb-16 pt-6 sm:pt-8">
+        <section
+          className="mb-10 rounded-[18px] border border-border bg-bg2 px-5 py-8 text-center sm:px-8 sm:py-10"
+          aria-label="Introduction"
+        >
+          <h1 className="font-display text-[1.65rem] font-semibold leading-snug tracking-tight text-primary sm:text-3xl md:text-[2rem]">
+            Bake Perfect Sourdough Every Time
+          </h1>
+          <p className="mt-3 font-sans text-sm leading-relaxed text-muted sm:text-base">
+            By Pauline - home baker on the Swedish west coast 🌊
+          </p>
+          <p className="mx-auto mt-4 max-w-[32rem] font-sans text-sm leading-relaxed text-muted sm:text-[15px]">
+            I built this free calculator because I got tired of doing sourdough maths by hand — and apparently so did a lot of other bakers!
+          </p>
+          <div className="mt-7 flex justify-center">
+            <button
+              type="button"
+              onClick={scrollToCalculator}
+              className="inline-flex cursor-pointer items-center justify-center rounded-[12px] border-2 border-primary bg-primary px-5 py-3 font-sans text-sm font-medium text-white shadow-sm transition-all duration-150 hover:bg-primary-light hover:border-primary-light active:scale-[0.99] sm:px-7 sm:text-[15px]"
+            >
+              Calculate my recipe →
+            </button>
+          </div>
+        </section>
+
         <div className="tab-bar mb-8 flex gap-0 border-b-2 border-border">
           <button
             type="button"
@@ -93,7 +124,7 @@ export default function App() {
           </button>
         </div>
 
-        <div className={activeTab === 'calculator' ? 'block' : 'hidden'}>
+        <div id="calculator" className={activeTab === 'calculator' ? 'block scroll-mt-24' : 'hidden'}>
           <CalculatorTab
             tr={tr}
             unit={unit}
