@@ -69,7 +69,7 @@ export function RecipeTab({
         <button
           type="button"
           onClick={onResetSteps}
-          className="cursor-pointer rounded-[10px] border border-border bg-transparent px-3.5 py-1.5 font-sans text-xs font-medium text-muted transition-all duration-150 hover:border-primary hover:text-primary"
+          className="min-h-[44px] touch-manipulation cursor-pointer rounded-[10px] border border-border bg-transparent px-3.5 py-2 font-sans text-xs font-medium text-muted transition-all duration-150 hover:border-primary hover:text-primary"
         >
           {tr.resetAll}
         </button>
@@ -99,7 +99,7 @@ export function RecipeTab({
                   key={step.id}
                   type="button"
                   onClick={() => onToggleStep(step.id)}
-                  className={`step-item mb-2 flex w-full cursor-pointer items-start gap-3 rounded-xl border px-3.5 py-3 text-left transition-all duration-200 select-none ${
+                  className={`step-item mb-2 flex min-h-[44px] w-full touch-manipulation cursor-pointer items-start gap-3 rounded-xl border px-3.5 py-3 text-left transition-all duration-200 select-none ${
                     isDone
                       ? 'border-step-border-done bg-step-done opacity-75'
                       : 'border-border bg-white hover:border-accent'
