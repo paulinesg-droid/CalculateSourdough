@@ -37,7 +37,13 @@ const DEFAULT_INTRO =
 
 const DEFAULT_HEADING = 'How to make your sourdough starter from scratch';
 
-export function StarterTab({ tr }: { tr: LocaleStrings }) {
+export function StarterTab({
+  tr,
+  onGoToRecipe,
+}: {
+  tr: LocaleStrings;
+  onGoToRecipe: () => void;
+}) {
   const starter = tr.starterTab;
   const heading = starter?.heading ?? DEFAULT_HEADING;
   const intro = starter?.intro ?? DEFAULT_INTRO;
@@ -126,6 +132,16 @@ export function StarterTab({ tr }: { tr: LocaleStrings }) {
             <li>A healthy starter smells tangy and yeasty, not like nail polish remover</li>
           </ul>
         </div>
+      </div>
+
+      <div className="mt-8 border-t border-border pt-6">
+        <button
+          type="button"
+          onClick={onGoToRecipe}
+          className="min-h-[48px] w-full touch-manipulation rounded-[12px] border-2 border-primary/35 bg-white px-4 py-3 text-center font-sans text-[13px] font-semibold leading-snug text-primary shadow-sm transition-all hover:border-primary hover:bg-bg2 hover:shadow-md active:scale-[0.99] sm:text-sm"
+        >
+          {tr.starterLinkToRecipe}
+        </button>
       </div>
     </div>
   );

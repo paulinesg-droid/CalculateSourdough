@@ -95,6 +95,8 @@ export interface LocaleStrings {
   calcLinkNoStarter: string;
   /** Calculator: link to Recipe tab after amounts */
   calcLinkToRecipe: string;
+  /** Starter tab: link to Recipe step-by-step at end of page */
+  starterLinkToRecipe: string;
 
   starterTab?: {
     heading: string;

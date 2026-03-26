@@ -234,6 +234,7 @@ export const de: LocaleStrings = {
   comingSoonProduct: 'Demnächst',
   calcLinkNoStarter: 'Noch keinen Starter? So stellst du einen her →',
   calcLinkToRecipe: 'Schritt-für-Schritt beim Backen — ich begleite dich →',
+  starterLinkToRecipe: 'Schritt-für-Schritt-Anleitung →',
   blogTab: {
     sectionTitle: 'Blog',
   },

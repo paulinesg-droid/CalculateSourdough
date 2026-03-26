@@ -234,6 +234,7 @@ export const en: LocaleStrings = {
   comingSoonProduct: 'Coming soon',
   calcLinkNoStarter: 'No starter yet? Here’s how to make one →',
   calcLinkToRecipe: 'Step-by-step bake guide — I’ve got you →',
+  starterLinkToRecipe: 'Step-by-step guide →',
   blogTab: {
     sectionTitle: 'Blog',
   },

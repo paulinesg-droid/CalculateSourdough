@@ -161,7 +161,7 @@ export default function App() {
         </div>
 
         <div className={activeTab === 'starter' ? 'block' : 'hidden'}>
-          <StarterTab tr={tr} />
+          <StarterTab tr={tr} onGoToRecipe={() => setActiveTab('recipe')} />
         </div>
 
         <div className={activeTab === 'recipe' ? 'block' : 'hidden'}>
