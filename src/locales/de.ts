@@ -222,6 +222,19 @@ export const de: LocaleStrings = {
       ],
     },
   ],
+  heroTitle: 'Perfekten Sauerteig jedes Mal backen',
+  heroByline: 'Von Pauline – Hobbybäckerin an der schwedischen Westküste 🌊',
+  heroIntro:
+    'Ich habe diesen kostenlosen Rechner gebaut, weil ich Sauerteig-Rechnungen leid war — und anscheinend viele andere Bäcker auch.',
+  heroCta: 'Mein Rezept berechnen →',
+  heroImageAlt: 'Sauerteigbrot, Blumen und Kerze',
+  heroAriaLabel: 'Einführung',
+  readMoreBlog: 'Weiterlesen',
+  filterAll: 'Alle',
+  comingSoonProduct: 'Demnächst',
+  blogTab: {
+    sectionTitle: 'Blog',
+  },
   footer: 'SourdoughCalculate — für immer kostenlos. Affiliate-Links helfen uns, dieses Tool kostenlos zu halten.',
   footerAmazonDisclaimer:
     'Als Amazon-Partner verdiene ich an qualifizierten Käufen.',

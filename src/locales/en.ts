@@ -222,6 +222,19 @@ export const en: LocaleStrings = {
       ],
     },
   ],
+  heroTitle: 'Bake Perfect Sourdough Every Time',
+  heroByline: 'By Pauline - home baker on the Swedish west coast 🌊',
+  heroIntro:
+    'I built this free calculator because I got tired of doing sourdough maths by hand — and apparently so did a lot of other bakers!',
+  heroCta: 'Calculate my recipe →',
+  heroImageAlt: 'Sourdough loaves, flowers, and candle',
+  heroAriaLabel: 'Introduction',
+  readMoreBlog: 'Read more',
+  filterAll: 'All',
+  comingSoonProduct: 'Coming soon',
+  blogTab: {
+    sectionTitle: 'Blog',
+  },
   footer: 'SourdoughCalculate — free forever. Affiliate links help keep this tool free.',
   footerAmazonDisclaimer:
     'As an Amazon Associate I earn from qualifying purchases.',

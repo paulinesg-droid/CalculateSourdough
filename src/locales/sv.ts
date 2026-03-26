@@ -6,7 +6,7 @@ export const sv: LocaleStrings = {
   tabCalc: 'Kalkylator',
   tabStarter: 'Surdegsstarter',
   tabRecipe: 'Steg-för-steg recept',
-  tabBlog: 'Blog',
+  tabBlog: 'Blogg',
   styleQuestion: 'Hur vill du att brödet ska bli?',
   labelLoafSize: 'Brödets vikt',
   labelLoaves: 'Antal bröd',
@@ -221,6 +221,19 @@ export const sv: LocaleStrings = {
       ],
     },
   ],
+  heroTitle: 'Baka perfekt surdeg varje gång',
+  heroByline: 'Av Pauline – hemmabagare på västkusten 🌊',
+  heroIntro:
+    'Jag byggde den här gratis kalkylatorn för att jag tröttnade på att räkna surdeg för hand – och tydligen gjorde många andra bagare detsamma!',
+  heroCta: 'Räkna ut mitt recept →',
+  heroImageAlt: 'Surdegsbröd, blommor och ljus',
+  heroAriaLabel: 'Introduktion',
+  readMoreBlog: 'Läs mer',
+  filterAll: 'Alla',
+  comingSoonProduct: 'Kommer snart',
+  blogTab: {
+    sectionTitle: 'Blogg',
+  },
   footer: 'SourdoughCalculate — alltid gratis. Affiliatelänkar hjälper oss hålla verktyget kostnadsfritt.',
   footerAmazonDisclaimer:
     'Som Amazon-partner tjänar jag på kvalificerade köp.',

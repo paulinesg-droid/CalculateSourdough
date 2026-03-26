@@ -279,7 +279,7 @@ export function CalculatorTab({
                     : 'border-border bg-transparent text-muted'
                 }`}
               >
-                {r === 'all' ? 'All' : r.toUpperCase()}
+                {r === 'all' ? tr.filterAll : r.toUpperCase()}
               </button>
             ))}
           </div>
@@ -310,7 +310,7 @@ export function CalculatorTab({
                   </a>
                 ) : (
                   <span className="rounded-lg border border-border bg-bg px-2 py-0.5 text-[10px] font-medium text-muted">
-                    Coming soon
+                    {tr.comingSoonProduct}
                   </span>
                 )}
               </div>
@@ -349,7 +349,7 @@ export function CalculatorTab({
                   </a>
                 ) : (
                   <span className="rounded-lg border border-border bg-bg px-2 py-2 text-center text-[10px] font-medium text-muted">
-                    Coming soon
+                    {tr.comingSoonProduct}
                   </span>
                 )}
               </div>

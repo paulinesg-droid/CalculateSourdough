@@ -81,6 +81,17 @@ export interface LocaleStrings {
   footer: string;
   footerAmazonDisclaimer: string;
 
+  /** Hero (home intro card) */
+  heroTitle: string;
+  heroByline: string;
+  heroIntro: string;
+  heroCta: string;
+  heroImageAlt: string;
+  heroAriaLabel: string;
+  readMoreBlog: string;
+  filterAll: string;
+  comingSoonProduct: string;
+
   starterTab?: {
     heading: string;
     intro: string;
