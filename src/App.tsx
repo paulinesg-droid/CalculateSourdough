@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/react'
 import { useCallback, useMemo, useState } from 'react';
+import heroBreadUrl from './assets/blog/breadandflower.jpg?url';
 import { parseLoafSizeInput, toGrams } from './calculations';
 import { CalculatorTab } from './components/CalculatorTab';
 import { Header } from './components/Header';
@@ -60,9 +61,17 @@ export default function App() {
 
       <main className="mx-auto max-w-[680px] px-4 pb-16 pt-6 max-[389px]:px-3 sm:px-6 sm:pt-8">
         <section
-          className="mb-8 rounded-[18px] border border-border bg-bg2 px-4 py-7 text-center sm:mb-10 sm:px-8 sm:py-10"
+          className="mb-8 overflow-hidden rounded-[18px] border border-border bg-bg2 text-center sm:mb-10"
           aria-label="Introduction"
         >
+          <img
+            src={heroBreadUrl}
+            alt="Sourdough loaves, flowers, and candle"
+            className="block h-[min(220px,42vw)] w-full object-cover sm:h-[260px]"
+            decoding="async"
+            fetchPriority="high"
+          />
+          <div className="px-4 py-7 sm:px-8 sm:py-10">
           <h1 className="font-display text-[1.65rem] font-semibold leading-snug tracking-tight text-primary sm:text-3xl md:text-[2rem]">
             Bake Perfect Sourdough Every Time
           </h1>
@@ -80,6 +89,7 @@ export default function App() {
             >
               Calculate my recipe →
             </button>
+          </div>
           </div>
         </section>
 
