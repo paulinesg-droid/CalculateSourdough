@@ -3,7 +3,6 @@ import type { LocaleStrings } from '../types';
 
 // Bundled from src/assets/blog/ (paths relative to this file: ../assets/blog/…)
 import imgCatUrl from '../assets/blog/IMG_4108.jpg?url';
-import imgJungleUrl from '../assets/blog/IMG_4102.jpg?url';
 
 type BlogPost = {
   title: string;
@@ -21,7 +20,6 @@ function firstTwoSentences(text: string) {
 const BLOG_POSTS: BlogPost[] = [
   {
     title: "I Spent a Year Lost in the Sourdough Jungle — Here's What Actually Works",
-    image: imgJungleUrl,
     content: `If you've ever searched "how to make sourdough" you'll know exactly what I mean by the jungle. Autolyse or no autolyse? 65% hydration or 80%? Feed your starter twice a day or once a week? Cold proof or room temperature? Dutch oven or baking stone? Score once or five times?
 
 I spent over a year trying to find the right way to make sourdough bread. I followed strict recipes from award-winning bakers. I joined forums where people argued passionately about flour protein content. I killed three starters. I produced loaves that could double as doorstops.
