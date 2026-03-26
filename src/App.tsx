@@ -55,7 +55,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-bg">
+    <div className="min-h-screen">
       <Header lang={lang} unit={unit} onLang={setLang} onUnit={handleUnit} />
 
       <main className="mx-auto max-w-[680px] px-4 pb-16 pt-6 max-[389px]:px-3 sm:px-6 sm:pt-8">

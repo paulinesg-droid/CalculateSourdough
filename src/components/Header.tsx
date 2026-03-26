@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export function Header({ lang, unit, onLang, onUnit }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-3 border-b border-border bg-white px-4 py-3 min-[390px]:px-6 min-[390px]:py-4">
+    <header className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-3 border-b border-border/80 bg-white/90 px-4 py-3 shadow-[0_1px_0_rgba(139,69,19,0.06)] backdrop-blur-sm min-[390px]:px-6 min-[390px]:py-4">
       <div className="min-w-0 font-display text-[1.25rem] font-semibold tracking-tight text-primary min-[390px]:text-[1.4rem]">
         Sourdough<span className="text-accent">Calculate</span>
       </div>
