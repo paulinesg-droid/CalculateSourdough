@@ -7,6 +7,7 @@ import { Header } from './components/Header';
 import { RecipeTab } from './components/RecipeTab';
 import { StarterTab } from './components/StarterTab';
 import { BlogTab } from './components/BlogTab';
+import { MainTabNav } from './components/MainTabNav';
 import { t } from './locales';
 import type { Lang, RegionFilter, StyleId, TabId, Unit } from './types';
 
@@ -55,7 +56,7 @@ export default function App() {
   const scrollToCalculator = useCallback(() => {
     setActiveTab('calculator');
     window.setTimeout(() => {
-      document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('panel-calculator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 50);
   }, []);
 
@@ -97,48 +98,14 @@ export default function App() {
           </div>
         </section>
 
-        <div className="tab-bar mb-8 flex flex-wrap gap-0 border-b-2 border-border">
-          <button
-            type="button"
-            onClick={() => setActiveTab('calculator')}
-            className={`tab-btn -mb-0.5 min-h-[44px] touch-manipulation cursor-pointer border-b-2 border-transparent bg-transparent px-3 py-2.5 font-sans text-[13px] font-medium transition-all duration-200 min-[390px]:px-4 min-[481px]:px-5 min-[481px]:text-sm ${
-              activeTab === 'calculator'
-                ? 'border-primary text-primary'
-                : 'text-muted'
-            }`}
-          >
-            {tr.tabCalc}
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('starter')}
-            className={`tab-btn -mb-0.5 min-h-[44px] touch-manipulation cursor-pointer border-b-2 border-transparent bg-transparent px-2.5 py-2.5 font-sans text-[13px] font-medium transition-all duration-200 min-[390px]:px-3 min-[481px]:px-5 min-[481px]:text-sm ${
-              activeTab === 'starter' ? 'border-primary text-primary' : 'text-muted'
-            }`}
-          >
-            {tr.tabStarter}
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('recipe')}
-            className={`tab-btn -mb-0.5 min-h-[44px] touch-manipulation cursor-pointer border-b-2 border-transparent bg-transparent px-2.5 py-2.5 font-sans text-[13px] font-medium transition-all duration-200 min-[390px]:px-3 min-[481px]:px-5 min-[481px]:text-sm ${
-              activeTab === 'recipe' ? 'border-primary text-primary' : 'text-muted'
-            }`}
-          >
-            {tr.tabRecipe}
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('blog')}
-            className={`tab-btn -mb-0.5 min-h-[44px] touch-manipulation cursor-pointer border-b-2 border-transparent bg-transparent px-2.5 py-2.5 font-sans text-[13px] font-medium transition-all duration-200 min-[390px]:px-3 min-[481px]:px-5 min-[481px]:text-sm ${
-              activeTab === 'blog' ? 'border-primary text-primary' : 'text-muted'
-            }`}
-          >
-            {tr.tabBlog}
-          </button>
-        </div>
+        <MainTabNav activeTab={activeTab} onSelect={setActiveTab} tr={tr} />
 
-        <div id="calculator" className={activeTab === 'calculator' ? 'block scroll-mt-24' : 'hidden'}>
+        <div
+          id="panel-calculator"
+          role="tabpanel"
+          aria-labelledby="tab-calculator"
+          className={activeTab === 'calculator' ? 'block scroll-mt-24' : 'hidden'}
+        >
           <CalculatorTab
             tr={tr}
             unit={unit}
@@ -160,11 +127,21 @@ export default function App() {
           />
         </div>
 
-        <div className={activeTab === 'starter' ? 'block' : 'hidden'}>
+        <div
+          id="panel-starter"
+          role="tabpanel"
+          aria-labelledby="tab-starter"
+          className={activeTab === 'starter' ? 'block' : 'hidden'}
+        >
           <StarterTab tr={tr} onGoToRecipe={() => setActiveTab('recipe')} />
         </div>
 
-        <div className={activeTab === 'recipe' ? 'block' : 'hidden'}>
+        <div
+          id="panel-recipe"
+          role="tabpanel"
+          aria-labelledby="tab-recipe"
+          className={activeTab === 'recipe' ? 'block' : 'hidden'}
+        >
           <RecipeTab
             tr={tr}
             unit={unit}
@@ -179,7 +156,12 @@ export default function App() {
           />
         </div>
 
-        <div className={activeTab === 'blog' ? 'block' : 'hidden'}>
+        <div
+          id="panel-blog"
+          role="tabpanel"
+          aria-labelledby="tab-blog"
+          className={activeTab === 'blog' ? 'block' : 'hidden'}
+        >
           <BlogTab tr={tr} onOpenCalculator={scrollToCalculator} />
         </div>
       </main>

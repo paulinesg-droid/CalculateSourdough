@@ -1,9 +1,48 @@
 import type { Lang } from '../types';
+import imgCatUrl from '../assets/blog/IMG_4108.jpg?url';
+import imgHeroBreadUrl from '../assets/blog/breadandflower.jpg?url';
 
-type BlogPostDef = { title: string; content: string };
+type BlogPostDef = { title: string; content: string; image?: string };
 
 export const blogPostsByLang: Record<Lang, BlogPostDef[]> = {
   en: [
+    {
+      title: 'Sourdough hydration explained: which % is right for you?',
+      image: imgHeroBreadUrl,
+      content: `You followed a recipe and your loaf still came out flat and dense. That stings. Often the piece recipes skip explaining is hydration — how much water is in your dough compared to the flour. Many throw a percentage at you without saying what it means for your hands, your oven, or your lunch.
+
+Here is baker's percentage in one line: water is measured as a percent of flour weight, not of the whole dough. Seventy-five percent hydration means 75 grams of water for every 100 grams of flour. That single idea unlocks every sourdough hydration calculator and recipe you will read.
+
+The four sourdough hydration levels (and what they actually mean)
+
+These labels match what you will see in a sourdough hydration calculator like the one on this site — so you can go straight from reading to baking.
+
+Fluffy and soft — 65% hydration. The dough feels firm and easier to shape. You get a tighter, even crumb and a softer bite. Great for sandwiches and toast. If you are new to sourdough or your loaves spread too much, this is your friend.
+
+Classic sourdough — 72% hydration. Slightly tacky but manageable. Most home bakers land here. You get a more open crumb than 65%, a chewy crust, and an everyday loaf that still looks handmade.
+
+Artisan and open — 80% hydration. Wet and floppy; it will stick if you are not used to it. The reward is bigger holes and a crackly crust. Better once you are comfortable shaping.
+
+Very wet and chewy — 88% hydration. Ciabatta-style slack dough. Extremely open crumb, hardest to handle. Save this for when lower hydrations feel boring, not for loaf number one.
+
+How to pick the right hydration for your kitchen
+
+First sourdough bake? Aim for 65–72% and learn the rhythm before chasing an Instagram crumb.
+
+Hot and humid (think Southern US summer)? Drop hydration about 3–5% below the recipe — flour already picks up moisture from the air.
+
+Baking with whole wheat or rye? Plan on roughly 5% more water than white flour; those grains drink more.
+
+Dough always sticks and puddles on the counter? Lower hydration by 5% next time and build skill on a friendlier dough.
+
+Want those big, lacy holes? Work your way up toward 80% once shaping feels natural, not on day one.
+
+Get your exact recipe in seconds
+
+Once you know your hydration level, you still need grams of flour, water, starter, and salt — and doing that math by hand gets old fast. Use the sourdough hydration calculator on this page: pick a style, set your loaf size and starter percentage, and copy a ready-to-bake formula. It is free and you do not need an account. You can also open the recipe tab for step-by-step timing after you have your numbers.
+
+Your best loaf is one batch away.`,
+    },
     {
       title: "I Spent a Year Lost in the Sourdough Jungle — Here's What Actually Works",
       content: `If you've ever searched "how to make sourdough" you'll know exactly what I mean by the jungle. Autolyse or no autolyse? 65% hydration or 80%? Feed your starter twice a day or once a week? Cold proof or room temperature? Dutch oven or baking stone? Score once or five times?
@@ -50,10 +89,48 @@ Still struggling? Try dropping your hydration to 65% using the calculator above.
     },
     {
       title: 'The Bread I Almost Ruined (But Everyone Loved)',
+      image: imgCatUrl,
       content: `I forgot the flour dusting. I botched the scoring. The crust cracked in all the wrong places — and yet, this sourdough loaf turned out to be one of the best I've ever baked. My husband said so. My 6 and 7-year-old kids said so. Even the cat jumped up to investigate, which in our house is the highest possible compliment. Sometimes the imperfect loaves are the ones that remind you why you started baking sourdough in the first place. No two loaves are ever the same — and that's exactly the point. Keywords naturally included: homemade sourdough bread, sourdough for beginners, sourdough mistakes, best sourdough recipe, artisan bread at home.`,
     },
   ],
   sv: [
+    {
+      title: 'Surdegshydrering förklarad: vilken procent passar dig?',
+      image: imgHeroBreadUrl,
+      content: `Du följde receptet och limpan blev ändå platt och kompakt. Det gör ont. Ofta är det recepten inte förklarar hydrering — hur mycket vatten degen har i förhållande till mjölet. Många kastar ut en procentsiffra utan att säga vad den betyder för händerna, ugnen eller mackan.
+
+Här är bagarprocent i en mening: vatten anges som procent av mjölvikten, inte av hela degen. Sjuttiofem procent hydrering betyder 75 gram vatten per 100 gram mjöl. Den tanken räcker för att förstå varje hydreringskalkylator och recept du läser.
+
+De fyra hydreringsnivåerna (och vad de betyder i praktiken)
+
+Namnen matchar vad du ser i en hydreringskalkylator på den här sidan — så du kan gå från text till bakning direkt.
+
+Fluffig och mjuk — 65 % hydrering. Deg som känns fastare och är lättare att forma. Tätare, jämn krumb och mjukare tugga. Bra till mackor och rostat. Ny på surdeg eller sprider sig limpan? Börja här.
+
+Klassisk surdeg — 72 % hydrering. Lite kletig men hanterbar. De flesta hemmabagare hamnar här. Mer öppen crumb än vid 65 %, seg skorpa och ett vardagsbröd som fortfarande ser hembakat ut.
+
+Hantverk och öppen — 80 % hydrering. Blöt och sladdrig; den kletar om du inte vant dig. Större hål och knäckigare skorpa. Lämpligare när du behärskar formningen.
+
+Mycket våt och seg — 88 % hydrering. Ciabattalik slack deg. Extremt öppen crumb, svårast att handskas med. Spara tills lägre hydreringar känns tråkiga, inte till första limpan.
+
+Så väljer du rätt hydrering för ditt kök
+
+Första surdegsbaket? Sikta på 65–72 % och lär dig tempot innan du jagar Instagram-crumb.
+
+Varmt och fuktigt (typ svensk sommar i söder)? Sänk hydreringen cirka 3–5 % under receptet — mjölet tar redan upp fukt från luften.
+
+Fullkorn eller råg? Räkna med ungefär 5 % mer vatten än för vitt mjöl; de suger mer.
+
+Deg som alltid kletar och flyter ut? Sänk hydreringen 5 % nästa gång och öva på en snällare deg.
+
+Vill du ha stora, spetsiga hål? Jobba dig upp mot 80 % när formning känns naturlig — inte dag ett.
+
+Få exakta gram på några sekunder
+
+När du vet ungefär vilken hydrering du vill ha behöver du ändå gram mjöl, vatten, starter och salt — och räkna för hand tröttnar man på. Använd hydreringskalkylatorn på den här sidan: välj stil, sätt limstorlek och starterprocent, och kopiera en färdig formel. Det är gratis och kräver inget konto. Öppna gärna receptfliken för tidsplan när du har dina siffror.
+
+Ditt bästa bröd är bara en deg bort.`,
+    },
     {
       title: 'Ett år i surdegsdjungeln — det här funkar i praktiken',
       content: `Om du någonsin har googlat "hur man bakar surdeg" vet du vad jag menar med djungeln. Autolys eller inte? 65 % hydrering eller 80 %? Mata starter två gånger om dagen eller en gång i veckan? Kalljäs eller rumstemperatur? Gjutjärnsgryta eller baksten? Ett snitt eller fem?
@@ -100,10 +177,48 @@ Fortfarande problem? Prova sänka hydreringen till 65 % i kalkylatorn.`,
     },
     {
       title: 'Brödet jag nästan förstörde (som alla älskade ändå)',
+      image: imgCatUrl,
       content: `Jag glömde mjöla. Snittet blev fult. Skorpan sprack åt alla fel håll — och ändå blev det ett av de bästa bröden jag bakat. Min man sa det. Barnen 6 och 7 år sa det. Till och med katten hoppade upp för att undersöka, vilket hos oss är högsta betyg. Ibland är det de perfekt *imperfekta* limporna som påminner dig om varför du började baka surdeg. Inga två limpor är lika — och det är poängen. Nyckelord: hembakat surdegsbröd, surdeg för nybörjare, vanliga misstag, recept, hantverksbröd hemma.`,
     },
   ],
   de: [
+    {
+      title: 'Sauerteig-Hydration erklärt: Welcher Prozentsatz passt zu dir?',
+      image: imgHeroBreadUrl,
+      content: `Du hast das Rezept befolgt — und das Brot wurde trotzdem flach und fest. Das ärgert. Oft fehlt die Erklärung zur Hydration: wie viel Wasser der Teig im Verhältnis zum Mehl hat. Viele Rezepte nennen eine Zahl, ohne zu sagen, was sie für Hände, Ofen und Brotzeit bedeutet.
+
+Bäcker-Prozent in einem Satz: Wasser wird als Prozent vom Mehlgewicht angegeben, nicht vom gesamten Teig. 75 % Hydration heißt 75 g Wasser auf 100 g Mehl. Damit verstehst du jeden Sauerteig-Hydrationsrechner und jedes Rezept.
+
+Die vier Hydrationsstufen (und was sie wirklich bedeuten)
+
+Die Bezeichnungen entsprechen dem Rechner auf dieser Seite — du kannst vom Lesen direkt zum Backen gehen.
+
+Fluffig und weich — 65 % Hydration. Der Teig wirkt fester und lässt sich leichter formen. Engere Krume, weicheres Mundgefühl. Ideal für Sandwiches und Toast. Neu im Sauerteig oder der Laib fließt zu sehr? Hier starten.
+
+Klassischer Sauerteig — 72 % Hydration. Etwas klebrig, aber gut zu handhaben. Viele Hobbybäcker landen hier. Offenere Krume als bei 65 %, kräftige Kruste, ein Alltagslaib mit Charakter.
+
+Handwerk und große Poren — 80 % Hydration. Feucht und weich; er klebt, wenn man es nicht gewohnt ist. Belohnung: größere Löcher und knackige Kruste. Sinnvoll, wenn Formen schon sitzt.
+
+Sehr feucht und elastisch — 88 % Hydration. Wie Ciabatta, sehr weich. Extrem offene Krume, am schwierigsten zu formen. Für später, nicht für den ersten Laib.
+
+So wählst du die passende Hydration für deine Küche
+
+Erster Sauerteig-Laib? Ziel 65–72 % und erst den Rhythmus lernen, bevor du Instagram-Krumen jagst.
+
+Heiß und schwül (z. B. Süden der USA im Sommer)? 3–5 % unter dem Rezept — das Mehl nimmt schon Feuchtigkeit aus der Luft auf.
+
+Mit Vollkorn oder Roggen? Rechne mit etwa 5 % mehr Wasser als bei Weißmehl; die saugen mehr.
+
+Teig klebt immer und läuft auseinander? Nächstes Mal 5 % weniger Hydration und Technik an freundlicherem Teig üben.
+
+Große, luftige Löcher gewünscht? Schrittweise Richtung 80 %, wenn Formen sicher sitzt — nicht am ersten Tag.
+
+Dein exaktes Rezept in Sekunden
+
+Wenn du deine Hydration grob kennst, brauchst du trotzdem Grammzahlen für Mehl, Wasser, Starter und Salz — und das dauernd von Hand zu rechnen nervt. Nutze den Sauerteig-Hydrationsrechner auf dieser Seite: Stil wählen, Laibgröße und Starteranteil einstellen, fertige Formel übernehmen. Kostenlos, ohne Anmeldung. Den Reiter Rezept kannst du für die Zeiten öffnen, sobald du deine Mengen hast.
+
+Dein bestes Brot ist nur einen Teig entfernt.`,
+    },
     {
       title: 'Ein Jahr im Sauerteig-Dschungel — das funktioniert wirklich',
       content: `Wenn du schon mal „Sauerteig backen“ gegoogelt hast, weißt du, was ich mit Dschungel meine. Autolyse oder nicht? 65 % Hydration oder 80 %? Starter täglich füttern oder wöchentlich? Kalt stellen oder bei Raumtemperatur? Gusseisen oder Stein? Ein oder fünf Schnitte?
@@ -140,7 +255,7 @@ Wenn du diese vier Zutaten im Griff hast, fehlt nur noch das Rechnen — oben im
 
 Problem 1 — Starter zu schwach. Er sollte nach dem Füttern bei Raumtemperatur in etwa 4–8 Stunden etwa doppelt so groß werden. Tut er das nicht, ist er nicht bereit zum Triebmittel. Lösung: täglich gleiche Gewichte Mehl und Wasser füttern, bis er zuverlässig aktiv ist.
 
-Problem 2 — Untergärung. Rezeptzeiten sind Richtwerte — die Dough ist fertig, wenn sie sich richtig anfühlt, nicht wenn der Timer klingelt. Gut gegart: deutlich gewachsen, luftig, wackelt leicht in der Schüssel.
+Problem 2 — Untergärung. Rezeptzeiten sind Richtwerte — der Teig ist fertig, wenn er sich richtig anfühlt, nicht wenn der Timer klingelt. Gut gegart: deutlich gewachsen, luftig, wackelt leicht in der Schüssel.
 
 Problem 3 — Zu viel Mehl beim Formen. Widersteh der Versuchung. Mehr Mehl schwächt das Gluten und macht trocken, klotzig. Feuchte Hände oder ein Teigschaber helfen.
 
@@ -150,6 +265,7 @@ Noch Probleme? Probiere 65 % Hydration im Rechner.`,
     },
     {
       title: 'Das Brot, das ich fast ruiniert habe (und alle liebten)',
+      image: imgCatUrl,
       content: `Ich vergaß zu mehlen. Der Schnitt wurde schief. Die Kruste riss — und trotzdem wurde es eines der besten Brote, die ich je gebacken habe. Mein Mann sagte es. Die Kinder (6 und 7) sagten es. Sogar die Katze kam schauen — bei uns das höchste Lob. Manchmal sind die unperfekten Laibe die, die dich erinnern, warum du Sauerteig angefangen hast. Keine zwei Laibe sind gleich — und genau das ist der Punkt.`,
     },
   ],

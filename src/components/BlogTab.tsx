@@ -1,9 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { LocaleStrings } from '../types';
 
-// Bundled from src/assets/blog/ (paths relative to this file: ../assets/blog/…)
-import imgCatUrl from '../assets/blog/IMG_4108.jpg?url';
-
 function firstTwoSentences(text: string) {
   const normalized = text.replace(/\s+/g, ' ').trim();
   const marked = normalized.replace(/([.!?])\s+/g, '$1|');
@@ -20,13 +17,7 @@ export function BlogTab({
 }) {
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
-  const posts = useMemo(() => {
-    const raw = tr.blogTab?.posts ?? [];
-    return raw.map((p, idx) => ({
-      ...p,
-      image: p.image ?? (idx === 3 ? imgCatUrl : undefined),
-    }));
-  }, [tr.blogTab?.posts]);
+  const posts = useMemo(() => tr.blogTab?.posts ?? [], [tr.blogTab?.posts]);
 
   const postsWithExcerpt = useMemo(
     () =>
@@ -48,7 +39,7 @@ export function BlogTab({
         {postsWithExcerpt.map((p) => {
           const isOpen = !!expanded[p.idx];
           return (
-            <div
+            <article
               key={p.title}
               className="overflow-hidden rounded-[14px] border border-border bg-white"
             >
@@ -61,9 +52,9 @@ export function BlogTab({
                 />
               ) : null}
               <div className="p-4 min-[390px]:p-5">
-                <div className="mb-2 font-display text-[1.05rem] font-semibold leading-snug text-primary min-[390px]:text-base">
+                <h3 className="mb-2 font-display text-[1.05rem] font-semibold leading-snug text-primary min-[390px]:text-base">
                   {p.title}
-                </div>
+                </h3>
                 <div className="mb-3 text-[15px] leading-relaxed text-muted sm:text-[13px]">{p.excerpt}</div>
 
                 {isOpen ? (
@@ -93,7 +84,7 @@ export function BlogTab({
                   </button>
                 </div>
               </div>
-            </div>
+            </article>
           );
         })}
       </div>
