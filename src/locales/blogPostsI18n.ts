@@ -165,7 +165,7 @@ Får du de rätt är du nästan i mål. Använd kalkylatorn ovan för dina propo
       title: 'Varför din surdeg inte jäser (och hur du fixar det)',
       content: `Platt surdeg är nybörjarnas vanligaste problem — och nästan alltid beror det på en av tre saker: för svag starter, underjäsning eller för mycket mjöl i formningen.
 
-Problem 1 — Starten är inte tillräckligt aktiv. Den ska ungefär fördubblas på 4–8 timmar vid rumstemperatur efter matning. Gör den inte det är den inte redo att lyfta bröd. Lösning: mata med lika delar mjöl och vatten varje dygn några dagar tills den är stabil.
+Problem 1 — Din starter är inte tillräckligt aktiv. Den ska ungefär fördubblas på 4–8 timmar vid rumstemperatur efter matning. Gör den inte det är den inte redo att lyfta bröd. Lösning: mata med lika delar mjöl och vatten varje dygn några dagar tills den är stabil.
 
 Problem 2 — Underjäsning. Det här är vanligast. Tider i recept är vägledning — degen är klar när den ser och känns rätt, inte när timern ringer. Rätt jäst deg har vuxit kanske 50–75 %, känns luftig och dallrar lite när du skakar bunken.
 
