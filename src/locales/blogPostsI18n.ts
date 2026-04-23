@@ -7,20 +7,22 @@ type BlogPostDef = { title: string; content: string; image?: string };
 export const blogPostsByLang: Record<Lang, BlogPostDef[]> = {
   en: [
     {
-      title: 'I built this for Swedish bakers. Then 54% of you showed up from the US.',
-      content: `I built this for Swedish bakers. Apparently you lot didn't get the memo.
+      title: 'I built this for Swedish bakers. Half of you are American.',
+      content: `I built this for Swedish bakers. Half of you are American.
 
-Okay so I just looked at my analytics and over half of you — 54% to be exact — are coming from the US. Another 14% from Canada. I genuinely did not see that coming when I put this together.
+And honestly, that might be my favourite thing about this little project.
 
-This started as me being lazy. I kept doing the same hydration calculations over and over and eventually thought, why am I doing this by hand. So I built a little tool, wrote everything in Swedish, and figured maybe a few hundred people in Scandinavia would use it occasionally.
+I put this together because I kept doing the same sourdough calculations over and over in my kitchen in western Sweden, and eventually just thought — let me build a thing. I wrote it in Swedish, figured a few local bakers might find it useful, and left it at that.
 
-Somehow it ended up in your hands instead.
+Then I looked at the numbers. Over half of you are coming from the US. Another chunk from Canada. People I will never meet, baking bread in kitchens I will never see, using something I made on my couch on a grey Tuesday in Gothenburg.
 
-I don't really have a grand point here. I just think it's a bit mad that someone in Texas or British Columbia is using something I cobbled together on my couch on the west coast of Sweden. Bread does weird things to people. In a good way.
+I find that genuinely moving, if I'm honest.
 
-Anyway — I hope it's actually useful to you. If something doesn't make sense or you want me to add something, let me know. The site is very much a work in progress and apparently I should probably translate more of it into English.
+There's something about bread that just does this. It doesn't care where you're from or what language your calculator is in. You've got flour, water, time, and that slightly unpredictable starter that you've somehow kept alive for longer than some houseplants. We're all just trying to get a good loaf out of it.
 
-Thanks for being here. Now go bake something.
+So whether you found this site because you speak Swedish, or because Google somehow dropped you here from across the Atlantic — welcome. I'm really glad you're here. I hope the calculator makes your baking a little easier and your kitchen smell a little better.
+
+Now go make something good.
 
 Pauline`,
     },
@@ -113,20 +115,22 @@ Still struggling? Try dropping your hydration to 65% using the calculator above.
   ],
   sv: [
     {
-      title: 'Jag byggde det här för svenska bagare. Hälften av er är i USA.',
-      content: `Jag byggde det här för svenska bagare. Tydligen fick ni andra aldrig meddelandet.
+      title: 'Jag byggde det här för svenska bagare. Hälften av er är amerikaner.',
+      content: `Jag byggde det här för svenska bagare. Hälften av er är amerikaner.
 
-Okej, jag tittade precis på min statistik och mer än hälften av er — 54% exakt — kommer från USA. Ytterligare 14% från Kanada. Jag hade verkligen inte föreställt mig det när jag satte ihop allt här.
+Och ärligt talat: det där kanske är min favoritsak med det här lilla projektet.
 
-Det började med att jag var lat. Jag gjorde samma hydreringsräkningar om och om igen och tillslut tänkte jag: varför räknar jag det här för hand. Så jag byggde ett litet verktyg, skrev allt på svenska och tänkte att några hundra personer i Skandinavien kanske använder det då och då.
+Jag satte ihop det här eftersom jag gjorde samma surdegsräkningar om och om igen i mitt kök i västra Sverige, och tillslut tänkte jag bara — låt mig bygga någonting. Jag skrev det på svenska, tänkte att några lokala bagare kanske hade nytta av det, och lät det bero med det.
 
-På något sätt hamnade det hos er i stället.
+Sedan tittade jag på siffrorna. Mer än hälften av er kommer från USA. Ytterligare en del från Kanada. Människor jag aldrig träffar, som bakar bröd i kök jag aldrig får se, med något jag gjorde i soffan en grå tisdag i Göteborg.
 
-Jag har inget stort budskap här. Jag tycker bara det är lite sjukt att någon i Texas eller British Columbia använder något jag snickrade ihop på soffan på västkusten. Bröd får folk att bete sig märkligt. På ett bra sätt.
+Jag tycker faktiskt att det där rör mig, om jag ska vara ärlig.
 
-Hur som helst — jag hoppas att det faktiskt är användbart. Om något är otydligt eller du vill att jag ska lägga till något, hör av dig. Sajten är långt ifrån färdig och tydligen borde jag översätta mer av den till engelska.
+Det är någonting med bröd som bara gör så. Det bryr sig inte om var du kommer ifrån eller vilket språk kalkylatorn har. Du har mjöl, vatten, tid och den där stundtals oberäkneliga starten som du av någon anledning hållit vid liv längre än vissa krukväxter. Vi försöker bara få en bra limpa, allihop.
 
-Tack för att du är här. Baka något nu.
+Oavsett om du hittade hit för att du talar svenska, eller för att Google ställde dig här från andra sidan Atlanten — välkommen. Jag är verkligen glad att du är här. Jag hoppas kalkylatorn gör bakningen lite enklare och att köket luktar lite godare.
+
+Gör något gott nu.
 
 Pauline`,
     },
@@ -219,20 +223,22 @@ Fortfarande problem? Prova sänka hydreringen till 65 % i kalkylatorn.`,
   ],
   de: [
     {
-      title: 'Eigentlich für schwedische Bäcker — dann kamen 54% aus den USA',
-      content: `Eigentlich habe ich das für schwedische Bäcker gebaut. Ihr andern habt die Notiz wohl nicht bekommen.
+      title: 'Eigentlich für schwedische Bäcker. Die Hälfte von euch ist aus den USA.',
+      content: `Eigentlich habe ich das für schwedische Bäcker gebaut. Die Hälfte von euch ist aus den USA.
 
-Ich habe gerade in meine Statistik geschaut: Mehr als die Hälfte von euch — genau 54% — kommt aus den USA. Weitere 14% aus Kanada. Damit hätte ich ehrlich nicht gerechnet, als ich das hier aufgesetzt habe.
+Und ehrlich: Das ist vielleicht mein Lieblingsding an diesem kleinen Projekt.
 
-Angefangen hat’s mit Faulheit. Ständig dieselbe Hydration ausgerechnet und irgendwann: Warum mache ich das von Hand. Also baute ich ein kleines Tool, schrieb alles auf Schwedisch und dachte, vielleicht ein paar Hundert Leute in Skandinavien, ab und zu.
+Ich hab’s zusammengestellt, weil ich in meiner Küche in Westschweden immer wieder dieselben Sauerteigrechnungen gemacht habe und irgendwann dachte: Bau ich mir halt was. Ich habe auf Schwedisch geschrieben, mir ein paar Bäcker aus der Gegend vorgestellt, und mehr nicht erwartet.
 
-Auf irgendeine Weise landete es stattdessen bei euch.
+Dann habe ich mir die Zahlen angesehen. Mehr als die Hälfte kommt aus den USA. Einen großen Teil aus Kanada. Menschen, die ich nie treffe, die in Küchen backen, die ich nie sehen werde, und etwas benutzen, das ich an einem grauen Dienstag auf meinem Sofa in Göteborg gebaut habe.
 
-Eigentlich wollte ich keinen Vortrag halten. Irre find ich nur, dass jemand in Texas oder British Columbia etwas benutzt, was ich mir auf dem Sofa an der Westküste Schwedens zusammengesetzt habe. Brot bringt Leute dazu, sich merkwürdig zu verhalten. Im guten Sinn.
+Das rührt mich wirklich, wenn ich ehrlich bin.
 
-Wie auch immer — ich hoffe, es nützt euch wirklich. Wenn etwas unklar ist oder du dir etwas wünschst, sag Bescheid. Die Seite ist laufend im Bau, und anscheinend sollte ich mehr ins Englische übersetzen.
+Brot macht so was. Es ist egal, woher du kommst und in welcher Sprache dein Rechner ist. Mehl, Wasser, Zeit — und der etwas unberechenbare Starter, den du länger am Leben hältst als manche Zimmerpflanzen. Wir wollen doch alle nur einen guten Laib.
 
-Schön, dass du da bist. Jetzt: backen.
+Ob du die Seite gefunden hast, weil du Schwedisch sprichst, oder weil Google dich irgendwie jenseits des Atlantiks hergeschickt hat — willkommen. Schön, dass du da bist. Ich hoffe, der Rechner macht’s ein bisschen leichter und deine Küche riecht ein bisschen besser.
+
+Back jetzt was Gutes.
 
 Pauline`,
     },
