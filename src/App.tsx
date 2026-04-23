@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/react'
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { flushSync } from 'react-dom';
 import heroBreadUrl from './assets/blog/breadandflower.jpg?url';
 import { parseLoafSizeInput, toGrams } from './calculations';
 import { CalculatorTab } from './components/CalculatorTab';
@@ -54,10 +55,21 @@ export default function App() {
   }, []);
 
   const scrollToCalculator = useCallback(() => {
-    setActiveTab('calculator');
-    window.setTimeout(() => {
-      document.getElementById('panel-calculator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 50);
+    flushSync(() => {
+      setActiveTab('calculator');
+    });
+    const run = () => {
+      const el =
+        document.getElementById('calculator-inputs-section') ??
+        document.getElementById('panel-calculator');
+      if (!el) return;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    };
+    // Double rAF: layout after tab panel becomes visible (incl. mobile WebKit)
+    requestAnimationFrame(() => {
+      requestAnimationFrame(run);
+    });
   }, []);
 
   return (

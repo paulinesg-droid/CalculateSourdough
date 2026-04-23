@@ -76,143 +76,152 @@ export function CalculatorTab({
     <div>
       <p className="mb-6 text-[15px] leading-relaxed text-muted sm:text-sm">{tr.tagline}</p>
 
-      <div className="section-title mb-4 font-display text-[1.1rem] font-semibold text-primary">
-        {tr.styleQuestion}
-      </div>
-      <div className="mb-8 grid grid-cols-1 gap-2.5 min-[481px]:grid-cols-2">
-        {tr.styles.map((s) => (
-          <button
-            key={s.id}
-            type="button"
-            onClick={() => onSelectStyle(s.id)}
-            className={`min-h-[44px] touch-manipulation cursor-pointer rounded-[14px] border-[1.5px] p-4 text-left transition-all duration-200 active:scale-[0.99] ${
-              s.id === selectedStyleId
-                ? 'border-primary bg-bg2'
-                : 'border-border bg-white hover:border-accent'
-            }`}
-          >
-            <div
-              className={`mb-1 text-sm font-medium ${
-                s.id === selectedStyleId ? 'text-primary' : 'text-ink'
+      <section
+        id="calculator-inputs-section"
+        className="scroll-mt-24 sm:scroll-mt-28"
+        aria-labelledby="calculator-inputs-heading"
+      >
+        <h2
+          id="calculator-inputs-heading"
+          className="section-title mb-4 font-display text-[1.1rem] font-semibold text-primary"
+        >
+          {tr.styleQuestion}
+        </h2>
+        <div className="mb-8 grid grid-cols-1 gap-2.5 min-[481px]:grid-cols-2">
+          {tr.styles.map((s) => (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => onSelectStyle(s.id)}
+              className={`min-h-[44px] touch-manipulation cursor-pointer rounded-[14px] border-[1.5px] p-4 text-left transition-all duration-200 active:scale-[0.99] ${
+                s.id === selectedStyleId
+                  ? 'border-primary bg-bg2'
+                  : 'border-border bg-white hover:border-accent'
               }`}
             >
-              {s.label}
-            </div>
-            <div className="text-xs leading-snug text-muted">{s.desc}</div>
-            <span className="mt-1.5 inline-block rounded-[10px] bg-accent-light px-2 py-0.5 text-[11px] font-medium text-accent">
-              {Math.round(HYDRATIONS[s.id] * 100)}% {tr.hydration}
-            </span>
-          </button>
-        ))}
-      </div>
-
-      <div className="mb-8 grid grid-cols-1 gap-4 min-[481px]:grid-cols-2">
-        <div className="rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
-          <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
-            {tr.labelLoafSize}
-          </label>
-          <div className="flex min-h-[44px] items-center gap-2">
-            <input
-              type="number"
-              min={100}
-              max={3000}
-              value={loafSizeStr}
-              onChange={(e) => onLoafSizeStrChange(e.target.value)}
-              className="min-h-[44px] w-full min-[390px]:w-24 border-none bg-transparent p-0 font-sans text-2xl font-medium text-ink outline-none"
-            />
-            <span className="text-sm font-normal text-muted">{unitLabel}</span>
-          </div>
-          <div className="mt-2.5 flex flex-wrap gap-1.5">
-            {presets.map((p) => (
-              <button
-                key={p}
-                type="button"
-                onClick={() => onPreset(p)}
-                className={`min-h-[44px] touch-manipulation cursor-pointer rounded-[10px] border px-3 py-2 font-sans text-xs font-medium transition-all duration-150 ${
-                  currentPreset == p
-                    ? 'border-primary bg-bg2 text-primary'
-                    : 'border-border bg-bg text-muted hover:border-primary hover:bg-bg2 hover:text-primary'
+              <div
+                className={`mb-1 text-sm font-medium ${
+                  s.id === selectedStyleId ? 'text-primary' : 'text-ink'
                 }`}
               >
-                {p}
-                {unitLabel}
-              </button>
-            ))}
-          </div>
+                {s.label}
+              </div>
+              <div className="text-xs leading-snug text-muted">{s.desc}</div>
+              <span className="mt-1.5 inline-block rounded-[10px] bg-accent-light px-2 py-0.5 text-[11px] font-medium text-accent">
+                {Math.round(HYDRATIONS[s.id] * 100)}% {tr.hydration}
+              </span>
+            </button>
+          ))}
         </div>
 
-        <div className="rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
-          <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
-            {tr.labelLoaves}
-          </label>
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => onLoavesDelta(-1)}
-              className="flex h-11 w-11 min-h-[44px] min-w-[44px] touch-manipulation cursor-pointer items-center justify-center rounded-full border-[1.5px] border-border bg-bg text-lg leading-none text-muted transition-all duration-150 hover:border-primary hover:bg-bg2 hover:text-primary"
-            >
-              −
-            </button>
-            <div className="min-w-8 text-center text-2xl font-medium">{loaves}</div>
-            <button
-              type="button"
-              onClick={() => onLoavesDelta(1)}
-              className="flex h-11 w-11 min-h-[44px] min-w-[44px] touch-manipulation cursor-pointer items-center justify-center rounded-full border-[1.5px] border-border bg-bg text-lg leading-none text-muted transition-all duration-150 hover:border-primary hover:bg-bg2 hover:text-primary"
-            >
-              +
-            </button>
-          </div>
-        </div>
-
-        <div className="col-span-1 min-[481px]:col-span-2 rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
-          <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
-            {tr.labelStarter} — {starterPct}%
-          </label>
-          <div className="flex min-h-[44px] items-center gap-2.5">
-            <input
-              type="range"
-              min={10}
-              max={30}
-              step={1}
-              value={starterPct}
-              onChange={(e) => onStarterPct(Number(e.target.value))}
-              className="slider-primary min-h-[44px] flex-1 py-2"
-            />
-            <div className="min-w-[42px] text-right text-lg font-medium text-primary">{starterPct}%</div>
-          </div>
-          <div className="mt-3">
-            <button
-              type="button"
-              onClick={onGoToStarter}
-              className="min-h-[44px] w-full touch-manipulation rounded-[12px] border-[1.5px] border-primary bg-primary px-4 py-2.5 text-center font-sans text-[13px] font-semibold leading-snug text-white shadow-sm transition-all hover:bg-primary-light hover:shadow active:scale-[0.99] sm:text-sm"
-            >
-              {tr.calcLinkNoStarter}
-            </button>
-          </div>
-          <div className="input-hint mt-2.5 text-[11px] leading-snug text-accent">{tr.hintStarter}</div>
-        </div>
-
-        <div className="col-span-1 min-[481px]:col-span-2 rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
-          <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
-            {tr.labelSalt} — {saltPct.toFixed(1)}%
-          </label>
-          <div className="flex min-h-[44px] items-center gap-2.5">
-            <input
-              type="range"
-              min={1.5}
-              max={2.5}
-              step={0.1}
-              value={saltPct}
-              onChange={(e) => onSaltPct(Number(e.target.value))}
-              className="slider-primary min-h-[44px] flex-1 py-2"
-            />
-            <div className="min-w-[42px] text-right text-lg font-medium text-primary">
-              {saltPct.toFixed(1)}%
+        <div className="mb-8 grid grid-cols-1 gap-4 min-[481px]:grid-cols-2">
+          <div className="rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
+            <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
+              {tr.labelLoafSize}
+            </label>
+            <div className="flex min-h-[44px] items-center gap-2">
+              <input
+                type="number"
+                min={100}
+                max={3000}
+                value={loafSizeStr}
+                onChange={(e) => onLoafSizeStrChange(e.target.value)}
+                className="min-h-[44px] w-full min-[390px]:w-24 border-none bg-transparent p-0 font-sans text-2xl font-medium text-ink outline-none"
+              />
+              <span className="text-sm font-normal text-muted">{unitLabel}</span>
+            </div>
+            <div className="mt-2.5 flex flex-wrap gap-1.5">
+              {presets.map((p) => (
+                <button
+                  key={p}
+                  type="button"
+                  onClick={() => onPreset(p)}
+                  className={`min-h-[44px] touch-manipulation cursor-pointer rounded-[10px] border px-3 py-2 font-sans text-xs font-medium transition-all duration-150 ${
+                    currentPreset == p
+                      ? 'border-primary bg-bg2 text-primary'
+                      : 'border-border bg-bg text-muted hover:border-primary hover:bg-bg2 hover:text-primary'
+                  }`}
+                >
+                  {p}
+                  {unitLabel}
+                </button>
+              ))}
             </div>
           </div>
-          <div className="input-hint mt-1.5 text-[11px] leading-snug text-accent">{tr.hintSalt}</div>
+
+          <div className="rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
+            <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
+              {tr.labelLoaves}
+            </label>
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => onLoavesDelta(-1)}
+                className="flex h-11 w-11 min-h-[44px] min-w-[44px] touch-manipulation cursor-pointer items-center justify-center rounded-full border-[1.5px] border-border bg-bg text-lg leading-none text-muted transition-all duration-150 hover:border-primary hover:bg-bg2 hover:text-primary"
+              >
+                −
+              </button>
+              <div className="min-w-8 text-center text-2xl font-medium">{loaves}</div>
+              <button
+                type="button"
+                onClick={() => onLoavesDelta(1)}
+                className="flex h-11 w-11 min-h-[44px] min-w-[44px] touch-manipulation cursor-pointer items-center justify-center rounded-full border-[1.5px] border-border bg-bg text-lg leading-none text-muted transition-all duration-150 hover:border-primary hover:bg-bg2 hover:text-primary"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div className="col-span-1 min-[481px]:col-span-2 rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
+            <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
+              {tr.labelStarter} — {starterPct}%
+            </label>
+            <div className="flex min-h-[44px] items-center gap-2.5">
+              <input
+                type="range"
+                min={10}
+                max={30}
+                step={1}
+                value={starterPct}
+                onChange={(e) => onStarterPct(Number(e.target.value))}
+                className="slider-primary min-h-[44px] flex-1 py-2"
+              />
+              <div className="min-w-[42px] text-right text-lg font-medium text-primary">{starterPct}%</div>
+            </div>
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={onGoToStarter}
+                className="min-h-[44px] w-full touch-manipulation rounded-[12px] border-[1.5px] border-primary bg-primary px-4 py-2.5 text-center font-sans text-[13px] font-semibold leading-snug text-white shadow-sm transition-all hover:bg-primary-light hover:shadow active:scale-[0.99] sm:text-sm"
+              >
+                {tr.calcLinkNoStarter}
+              </button>
+            </div>
+            <div className="input-hint mt-2.5 text-[11px] leading-snug text-accent">{tr.hintStarter}</div>
+          </div>
+
+          <div className="col-span-1 min-[481px]:col-span-2 rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
+            <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
+              {tr.labelSalt} — {saltPct.toFixed(1)}%
+            </label>
+            <div className="flex min-h-[44px] items-center gap-2.5">
+              <input
+                type="range"
+                min={1.5}
+                max={2.5}
+                step={0.1}
+                value={saltPct}
+                onChange={(e) => onSaltPct(Number(e.target.value))}
+                className="slider-primary min-h-[44px] flex-1 py-2"
+              />
+              <div className="min-w-[42px] text-right text-lg font-medium text-primary">
+                {saltPct.toFixed(1)}%
+              </div>
+            </div>
+            <div className="input-hint mt-1.5 text-[11px] leading-snug text-accent">{tr.hintSalt}</div>
+          </div>
         </div>
-      </div>
+      </section>
 
       <div className="mb-8 rounded-[20px] border-[1.5px] border-accent-light bg-bg2 p-4 min-[390px]:p-6">
         <div className="output-header mb-5 flex items-baseline justify-between border-b border-border pb-4">
