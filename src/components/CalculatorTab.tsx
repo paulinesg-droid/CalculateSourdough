@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useRef } from 'react';
 import {
   HYDRATIONS,
   IMPERIAL_PRESETS,
@@ -8,6 +9,19 @@ import {
 import { calcValues, fmt, parseLoafSizeInput } from '../calculations';
 import type { LocaleStrings } from '../types';
 import type { RegionFilter, StyleId, Unit } from '../types';
+
+/** Ordered anchors for guided scroll (en/sv/de — same DOM, same behavior). */
+const GUIDED_SCROLL_DELAY_MS = 300;
+
+const CALC_STEP_ANCHOR_IDS = [
+  'calculator-inputs-section', // 0: style
+  'calculator-step-amount', // 1: loaf + loaves
+  'calculator-step-starter', // 2
+  'calculator-step-salt', // 3
+  'calculator-step-recipe', // 4: totals
+] as const;
+
+const CALC_STEP_ANCHOR_CLASS = 'max-[639px]:scroll-mt-28 min-[640px]:scroll-mt-4';
 
 interface CalculatorTabProps {
   tr: LocaleStrings;
@@ -72,13 +86,64 @@ export function CalculatorTab({
   );
   const spotlight = spotlightProducts();
 
+  const guidedScrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const scrollToStepIndex = useCallback((stepIndex: number) => {
+    if (stepIndex < 0 || stepIndex >= CALC_STEP_ANCHOR_IDS.length) return;
+    const el = document.getElementById(CALC_STEP_ANCHOR_IDS[stepIndex]);
+    if (!el) return;
+    const isMobile = window.matchMedia('(max-width: 639px)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: isMobile ? 'start' : 'center',
+      inline: 'nearest',
+    });
+  }, []);
+
+  const scheduleScrollFromCompletedStep = useCallback(
+    (completedStepIndex: number) => {
+      if (completedStepIndex < 0 || completedStepIndex >= CALC_STEP_ANCHOR_IDS.length - 1) {
+        return;
+      }
+      const nextIndex = completedStepIndex + 1;
+      if (guidedScrollTimerRef.current) clearTimeout(guidedScrollTimerRef.current);
+      guidedScrollTimerRef.current = setTimeout(() => {
+        guidedScrollTimerRef.current = null;
+        scrollToStepIndex(nextIndex);
+      }, GUIDED_SCROLL_DELAY_MS);
+    },
+    [scrollToStepIndex]
+  );
+
+  const handleLoafSizeWithGuided = useCallback(
+    (value: string) => {
+      onLoafSizeStrChange(value);
+      if (guidedScrollTimerRef.current) clearTimeout(guidedScrollTimerRef.current);
+      guidedScrollTimerRef.current = setTimeout(() => {
+        guidedScrollTimerRef.current = null;
+        const n = parseLoafSizeInput(value, unit);
+        if (n < 100 || n > 3000) return;
+        scrollToStepIndex(2);
+      }, GUIDED_SCROLL_DELAY_MS);
+    },
+    [onLoafSizeStrChange, unit, scrollToStepIndex]
+  );
+
+  useEffect(
+    () => () => {
+      if (guidedScrollTimerRef.current) clearTimeout(guidedScrollTimerRef.current);
+    },
+    []
+  );
+
   return (
     <div>
       <p className="mb-6 text-[15px] leading-relaxed text-muted sm:text-sm">{tr.tagline}</p>
 
       <section
         id="calculator-inputs-section"
-        className="scroll-mt-24 sm:scroll-mt-28"
+        className={CALC_STEP_ANCHOR_CLASS}
         aria-labelledby="calculator-inputs-heading"
       >
         <h2
@@ -87,12 +152,15 @@ export function CalculatorTab({
         >
           {tr.styleQuestion}
         </h2>
-        <div className="mb-8 grid grid-cols-1 gap-2.5 min-[481px]:grid-cols-2">
+        <div className="mb-0 grid grid-cols-1 gap-2.5 min-[481px]:grid-cols-2">
           {tr.styles.map((s) => (
             <button
               key={s.id}
               type="button"
-              onClick={() => onSelectStyle(s.id)}
+              onClick={() => {
+                onSelectStyle(s.id);
+                scheduleScrollFromCompletedStep(0);
+              }}
               className={`min-h-[44px] touch-manipulation cursor-pointer rounded-[14px] border-[1.5px] p-4 text-left transition-all duration-200 active:scale-[0.99] ${
                 s.id === selectedStyleId
                   ? 'border-primary bg-bg2'
@@ -113,19 +181,32 @@ export function CalculatorTab({
             </button>
           ))}
         </div>
+      </section>
 
-        <div className="mb-8 grid grid-cols-1 gap-4 min-[481px]:grid-cols-2">
+      <section
+        id="calculator-step-amount"
+        className={`mb-8 mt-8 ${CALC_STEP_ANCHOR_CLASS}`}
+        aria-labelledby="calculator-step-amount-heading"
+      >
+        <h2
+          id="calculator-step-amount-heading"
+          className="section-title mb-4 font-display text-[1.1rem] font-semibold text-primary"
+        >
+          {tr.labelLoafSize} <span className="text-muted">·</span> {tr.labelLoaves}
+        </h2>
+        <div className="grid grid-cols-1 gap-4 min-[481px]:grid-cols-2">
           <div className="rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
-            <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
+            <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted" htmlFor="loaf-size-input">
               {tr.labelLoafSize}
             </label>
             <div className="flex min-h-[44px] items-center gap-2">
               <input
+                id="loaf-size-input"
                 type="number"
                 min={100}
                 max={3000}
                 value={loafSizeStr}
-                onChange={(e) => onLoafSizeStrChange(e.target.value)}
+                onChange={(e) => handleLoafSizeWithGuided(e.target.value)}
                 className="min-h-[44px] w-full min-[390px]:w-24 border-none bg-transparent p-0 font-sans text-2xl font-medium text-ink outline-none"
               />
               <span className="text-sm font-normal text-muted">{unitLabel}</span>
@@ -135,7 +216,10 @@ export function CalculatorTab({
                 <button
                   key={p}
                   type="button"
-                  onClick={() => onPreset(p)}
+                  onClick={() => {
+                    onPreset(p);
+                    scheduleScrollFromCompletedStep(1);
+                  }}
                   className={`min-h-[44px] touch-manipulation cursor-pointer rounded-[10px] border px-3 py-2 font-sans text-xs font-medium transition-all duration-150 ${
                     currentPreset == p
                       ? 'border-primary bg-bg2 text-primary'
@@ -156,7 +240,10 @@ export function CalculatorTab({
             <div className="flex items-center gap-3">
               <button
                 type="button"
-                onClick={() => onLoavesDelta(-1)}
+                onClick={() => {
+                  onLoavesDelta(-1);
+                  scheduleScrollFromCompletedStep(1);
+                }}
                 className="flex h-11 w-11 min-h-[44px] min-w-[44px] touch-manipulation cursor-pointer items-center justify-center rounded-full border-[1.5px] border-border bg-bg text-lg leading-none text-muted transition-all duration-150 hover:border-primary hover:bg-bg2 hover:text-primary"
               >
                 −
@@ -164,68 +251,106 @@ export function CalculatorTab({
               <div className="min-w-8 text-center text-2xl font-medium">{loaves}</div>
               <button
                 type="button"
-                onClick={() => onLoavesDelta(1)}
+                onClick={() => {
+                  onLoavesDelta(1);
+                  scheduleScrollFromCompletedStep(1);
+                }}
                 className="flex h-11 w-11 min-h-[44px] min-w-[44px] touch-manipulation cursor-pointer items-center justify-center rounded-full border-[1.5px] border-border bg-bg text-lg leading-none text-muted transition-all duration-150 hover:border-primary hover:bg-bg2 hover:text-primary"
               >
                 +
               </button>
             </div>
           </div>
-
-          <div className="col-span-1 min-[481px]:col-span-2 rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
-            <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
-              {tr.labelStarter} — {starterPct}%
-            </label>
-            <div className="flex min-h-[44px] items-center gap-2.5">
-              <input
-                type="range"
-                min={10}
-                max={30}
-                step={1}
-                value={starterPct}
-                onChange={(e) => onStarterPct(Number(e.target.value))}
-                className="slider-primary min-h-[44px] flex-1 py-2"
-              />
-              <div className="min-w-[42px] text-right text-lg font-medium text-primary">{starterPct}%</div>
-            </div>
-            <div className="mt-3">
-              <button
-                type="button"
-                onClick={onGoToStarter}
-                className="min-h-[44px] w-full touch-manipulation rounded-[12px] border-[1.5px] border-primary bg-primary px-4 py-2.5 text-center font-sans text-[13px] font-semibold leading-snug text-white shadow-sm transition-all hover:bg-primary-light hover:shadow active:scale-[0.99] sm:text-sm"
-              >
-                {tr.calcLinkNoStarter}
-              </button>
-            </div>
-            <div className="input-hint mt-2.5 text-[11px] leading-snug text-accent">{tr.hintStarter}</div>
-          </div>
-
-          <div className="col-span-1 min-[481px]:col-span-2 rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
-            <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-muted">
-              {tr.labelSalt} — {saltPct.toFixed(1)}%
-            </label>
-            <div className="flex min-h-[44px] items-center gap-2.5">
-              <input
-                type="range"
-                min={1.5}
-                max={2.5}
-                step={0.1}
-                value={saltPct}
-                onChange={(e) => onSaltPct(Number(e.target.value))}
-                className="slider-primary min-h-[44px] flex-1 py-2"
-              />
-              <div className="min-w-[42px] text-right text-lg font-medium text-primary">
-                {saltPct.toFixed(1)}%
-              </div>
-            </div>
-            <div className="input-hint mt-1.5 text-[11px] leading-snug text-accent">{tr.hintSalt}</div>
-          </div>
         </div>
       </section>
 
-      <div className="mb-8 rounded-[20px] border-[1.5px] border-accent-light bg-bg2 p-4 min-[390px]:p-6">
-        <div className="output-header mb-5 flex items-baseline justify-between border-b border-border pb-4">
-          <div className="font-display text-[1.1rem] text-primary">{tr.yourRecipe}</div>
+      <section
+        id="calculator-step-starter"
+        className={`${CALC_STEP_ANCHOR_CLASS} mb-8`}
+        aria-labelledby="calculator-step-starter-heading"
+      >
+        <h2
+          id="calculator-step-starter-heading"
+          className="section-title mb-3 font-display text-[1.1rem] font-semibold text-primary"
+        >
+          {tr.labelStarter}
+        </h2>
+        <div className="rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
+          <div className="flex min-h-[44px] items-center gap-2.5">
+            <input
+              type="range"
+              min={10}
+              max={30}
+              step={1}
+              value={starterPct}
+              onChange={(e) => {
+                onStarterPct(Number(e.target.value));
+                scheduleScrollFromCompletedStep(2);
+              }}
+              className="slider-primary min-h-[44px] flex-1 py-2"
+            />
+            <div className="min-w-[42px] text-right text-lg font-medium text-primary">{starterPct}%</div>
+          </div>
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={onGoToStarter}
+              className="min-h-[44px] w-full touch-manipulation rounded-[12px] border-[1.5px] border-primary bg-primary px-4 py-2.5 text-center font-sans text-[13px] font-semibold leading-snug text-white shadow-sm transition-all hover:bg-primary-light hover:shadow active:scale-[0.99] sm:text-sm"
+            >
+              {tr.calcLinkNoStarter}
+            </button>
+          </div>
+          <div className="input-hint mt-2.5 text-[11px] leading-snug text-accent">{tr.hintStarter}</div>
+        </div>
+      </section>
+
+      <section
+        id="calculator-step-salt"
+        className={`${CALC_STEP_ANCHOR_CLASS} mb-8`}
+        aria-labelledby="calculator-step-salt-heading"
+      >
+        <h2
+          id="calculator-step-salt-heading"
+          className="section-title mb-3 font-display text-[1.1rem] font-semibold text-primary"
+        >
+          {tr.labelSalt}
+        </h2>
+        <div className="rounded-[14px] border border-border bg-white px-4 py-4 min-[390px]:px-5">
+          <div className="flex min-h-[44px] items-center gap-2.5">
+            <input
+              type="range"
+              min={1.5}
+              max={2.5}
+              step={0.1}
+              value={saltPct}
+              onChange={(e) => {
+                onSaltPct(Number(e.target.value));
+                scheduleScrollFromCompletedStep(3);
+              }}
+              className="slider-primary min-h-[44px] flex-1 py-2"
+            />
+            <div className="min-w-[42px] text-right text-lg font-medium text-primary">
+              {saltPct.toFixed(1)}%
+            </div>
+          </div>
+          <div className="input-hint mt-1.5 text-[11px] leading-snug text-accent">{tr.hintSalt}</div>
+        </div>
+      </section>
+
+      <div
+        className="mb-8 rounded-[20px] border-[1.5px] border-accent-light bg-bg2 p-4 min-[390px]:p-6"
+        aria-labelledby="calculator-step-recipe-heading"
+      >
+        <div
+          id="calculator-step-recipe"
+          className={`output-header mb-5 flex items-baseline justify-between border-b border-border pb-4 ${CALC_STEP_ANCHOR_CLASS}`}
+        >
+          <h2
+            className="font-display text-[1.1rem] text-primary"
+            id="calculator-step-recipe-heading"
+          >
+            {tr.yourRecipe}
+          </h2>
           <div className="text-xs text-muted">
             {loaves} × {styleLabel}
           </div>
