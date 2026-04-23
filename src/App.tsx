@@ -65,39 +65,6 @@ export default function App() {
       <Header lang={lang} unit={unit} onLang={setLang} onUnit={handleUnit} />
 
       <main className="mx-auto max-w-[680px] px-4 pb-16 pt-6 max-[389px]:px-3 sm:px-6 sm:pt-8">
-        <section
-          className="mb-8 overflow-hidden rounded-[18px] border border-border bg-bg2 text-center sm:mb-10"
-          aria-label={tr.heroAriaLabel}
-        >
-          <img
-            src={heroBreadUrl}
-            alt={tr.heroImageAlt}
-            className="block h-[min(220px,42vw)] w-full object-cover sm:h-[260px]"
-            decoding="async"
-            fetchPriority="high"
-          />
-          <div className="px-4 py-7 sm:px-8 sm:py-10">
-          <h1 className="font-display text-[1.65rem] font-semibold leading-snug tracking-tight text-primary sm:text-3xl md:text-[2rem]">
-            {tr.heroTitle}
-          </h1>
-          <p className="mt-3 font-sans text-sm leading-relaxed text-muted sm:text-base">
-            {tr.heroByline}
-          </p>
-          <p className="mx-auto mt-4 max-w-[32rem] font-sans text-sm leading-relaxed text-muted sm:text-[15px]">
-            {tr.heroIntro}
-          </p>
-          <div className="mt-7 flex justify-center">
-            <button
-              type="button"
-              onClick={scrollToCalculator}
-              className="inline-flex min-h-[44px] cursor-pointer touch-manipulation items-center justify-center rounded-[12px] border-2 border-primary bg-primary px-6 py-3 font-sans text-sm font-medium text-white shadow-sm transition-all duration-150 hover:bg-primary-light hover:border-primary-light active:scale-[0.99] sm:px-7 sm:text-[15px]"
-            >
-              {tr.heroCta}
-            </button>
-          </div>
-          </div>
-        </section>
-
         <MainTabNav activeTab={activeTab} onSelect={setActiveTab} tr={tr} />
 
         <div
@@ -164,6 +131,39 @@ export default function App() {
         >
           <BlogTab tr={tr} onOpenCalculator={scrollToCalculator} />
         </div>
+
+        <section
+          className="mt-10 overflow-hidden rounded-[18px] border border-border bg-bg2 text-center sm:mt-12"
+          aria-label={tr.heroAriaLabel}
+        >
+          <img
+            src={heroBreadUrl}
+            alt={tr.heroImageAlt}
+            className="block h-[min(220px,42vw)] w-full object-cover sm:h-[260px]"
+            decoding="async"
+            fetchPriority="low"
+          />
+          <div className="px-4 py-7 sm:px-8 sm:py-10">
+            <h1 className="font-display text-[1.65rem] font-semibold leading-snug tracking-tight text-primary sm:text-3xl md:text-[2rem]">
+              {tr.heroTitle}
+            </h1>
+            <p className="mt-3 font-sans text-sm leading-relaxed text-muted sm:text-base">
+              {tr.heroByline}
+            </p>
+            <p className="mx-auto mt-4 max-w-[32rem] font-sans text-sm leading-relaxed text-muted sm:text-[15px]">
+              {tr.heroIntro}
+            </p>
+            <div className="mt-7 flex justify-center">
+              <button
+                type="button"
+                onClick={scrollToCalculator}
+                className="inline-flex min-h-[44px] cursor-pointer touch-manipulation items-center justify-center rounded-[12px] border-2 border-primary bg-primary px-6 py-3 font-sans text-sm font-medium text-white shadow-sm transition-all duration-150 hover:border-primary-light hover:bg-primary-light active:scale-[0.99] sm:px-7 sm:text-[15px]"
+              >
+                {tr.heroCta}
+              </button>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer className="mx-auto max-w-[680px] border-t border-border px-4 py-8 text-center text-xs text-muted min-[390px]:px-6">
