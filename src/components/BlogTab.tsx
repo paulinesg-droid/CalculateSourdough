@@ -1,6 +1,17 @@
 import Giscus from '@giscus/react';
 import { useMemo, useState } from 'react';
-import type { LocaleStrings } from '../types';
+import type { Lang, LocaleStrings } from '../types';
+
+function formatBlogDate(iso: string, lang: Lang): string {
+  const d = new Date(`${iso}T12:00:00`);
+  if (Number.isNaN(d.getTime())) return iso;
+  const locale = lang === 'sv' ? 'sv-SE' : lang === 'de' ? 'de-DE' : 'en-GB';
+  return new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(d);
+}
 
 function firstTwoSentences(text: string) {
   const normalized = text.replace(/\s+/g, ' ').trim();
@@ -10,25 +21,29 @@ function firstTwoSentences(text: string) {
 }
 
 export function BlogTab({
+  lang,
   tr,
   onOpenCalculator,
 }: {
+  lang: Lang;
   tr: LocaleStrings;
   onOpenCalculator: () => void;
 }) {
-  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
   const posts = useMemo(() => tr.blogTab?.posts ?? [], [tr.blogTab?.posts]);
 
-  const postsWithExcerpt = useMemo(
-    () =>
-      posts.map((p, idx) => ({
-        ...p,
-        idx,
-        excerpt: firstTwoSentences(p.content),
-      })),
-    [posts]
-  );
+  const postsWithExcerpt = useMemo(() => {
+    const sorted = [...posts].sort((a, b) => {
+      const ta = new Date(`${a.date}T12:00:00`).getTime();
+      const tb = new Date(`${b.date}T12:00:00`).getTime();
+      return tb - ta;
+    });
+    return sorted.map((p) => ({
+      ...p,
+      excerpt: firstTwoSentences(p.content),
+    }));
+  }, [posts]);
 
   return (
     <div>
@@ -38,7 +53,7 @@ export function BlogTab({
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {postsWithExcerpt.map((p) => {
-          const isOpen = !!expanded[p.idx];
+          const isOpen = !!expanded[p.title];
           return (
             <article
               key={p.title}
@@ -53,9 +68,21 @@ export function BlogTab({
                 />
               ) : null}
               <div className="p-4 min-[390px]:p-5">
-                <h3 className="mb-2 font-display text-[1.05rem] font-semibold leading-snug text-primary min-[390px]:text-base">
+                <h3 className="mb-1 font-display text-[1.05rem] font-semibold leading-snug text-primary min-[390px]:text-base">
                   {p.title}
                 </h3>
+                <p className="mb-3 text-sm leading-relaxed text-primary/95">
+                  <span className="text-muted">
+                    {tr.blogTab?.datePublishedLabel ?? 'Published'}
+                    {': '}
+                  </span>
+                  <time
+                    dateTime={p.date}
+                    className="font-medium text-primary"
+                  >
+                    {formatBlogDate(p.date, lang)}
+                  </time>
+                </p>
                 <div className="mb-3 text-[15px] leading-relaxed text-muted sm:text-[13px]">{p.excerpt}</div>
 
                 {isOpen ? (
@@ -67,7 +94,7 @@ export function BlogTab({
                 <button
                   type="button"
                   className="min-h-[44px] touch-manipulation cursor-pointer rounded-[10px] border border-border bg-transparent px-4 py-2.5 font-sans text-sm font-medium text-muted transition-all duration-150 hover:border-primary hover:text-primary"
-                  onClick={() => setExpanded((s) => ({ ...s, [p.idx]: !s[p.idx] }))}
+                  onClick={() => setExpanded((s) => ({ ...s, [p.title]: !s[p.title] }))}
                 >
                   {tr.readMoreBlog}
                 </button>

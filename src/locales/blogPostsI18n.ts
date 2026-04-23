@@ -2,12 +2,13 @@ import type { Lang } from '../types';
 import imgCatUrl from '../assets/blog/IMG_4108.jpg?url';
 import imgHeroBreadUrl from '../assets/blog/breadandflower.jpg?url';
 
-type BlogPostDef = { title: string; content: string; image?: string };
+type BlogPostDef = { title: string; content: string; image?: string; date: string };
 
 export const blogPostsByLang: Record<Lang, BlogPostDef[]> = {
   en: [
     {
       title: 'I built this for Swedish bakers. Half of you are American.',
+      date: '2026-04-22',
       content: `I built this for Swedish bakers. Half of you are American.
 
 And honestly, that might be my favourite thing about this little project.
@@ -28,6 +29,7 @@ Pauline`,
     },
     {
       title: 'Sourdough hydration explained: which % is right for you?',
+      date: '2026-03-08',
       image: imgHeroBreadUrl,
       content: `You followed a recipe and your loaf still came out flat and dense. That stings. Often the piece recipes skip explaining is hydration — how much water is in your dough compared to the flour. Many throw a percentage at you without saying what it means for your hands, your oven, or your lunch.
 
@@ -65,6 +67,7 @@ Your best loaf is one batch away.`,
     },
     {
       title: "I Spent a Year Lost in the Sourdough Jungle — Here's What Actually Works",
+      date: '2025-12-01',
       content: `If you've ever searched "how to make sourdough" you'll know exactly what I mean by the jungle. Autolyse or no autolyse? 65% hydration or 80%? Feed your starter twice a day or once a week? Cold proof or room temperature? Dutch oven or baking stone? Score once or five times?
 
 I spent over a year trying to find the right way to make sourdough bread. I followed strict recipes from award-winning bakers. I joined forums where people argued passionately about flour protein content. I killed three starters. I produced loaves that could double as doorstops.
@@ -79,6 +82,7 @@ The jungle becomes a lot less scary when you have a map.`,
     },
     {
       title: 'The Only 4 Ingredients You Need for Perfect Sourdough',
+      date: '2025-12-14',
       content: `Flour. Water. Salt. Starter. That is it.
 
 No commercial yeast. No bread improvers. No special equipment (though a Dutch oven helps). The magic of sourdough is that four completely ordinary ingredients, combined in the right ratios and given enough time, produce something extraordinary.
@@ -95,6 +99,7 @@ Get these four ingredients right and you are most of the way there. Use the calc
     },
     {
       title: 'Why Your Sourdough Is Not Rising (And How to Fix It)',
+      date: '2026-01-02',
       content: `Flat sourdough is the most common problem beginners face — and almost always, the culprit is one of three things: an underactive starter, under-fermentation, or too much flour.
 
 Problem 1 — Your starter is not active enough. Your starter should roughly double in size within 4 to 8 hours of feeding at room temperature. If it is not doing that, it is not ready to leaven bread. Fix: feed it equal weights of flour and water every 24 hours for a few days until it becomes reliably active.
@@ -109,6 +114,7 @@ Still struggling? Try dropping your hydration to 65% using the calculator above.
     },
     {
       title: 'The Bread I Almost Ruined (But Everyone Loved)',
+      date: '2026-03-19',
       image: imgCatUrl,
       content: `I forgot the flour dusting. I botched the scoring. The crust cracked in all the wrong places — and yet, this sourdough loaf turned out to be one of the best I've ever baked. My husband said so. My 6 and 7-year-old kids said so. Even the cat jumped up to investigate, which in our house is the highest possible compliment. Sometimes the imperfect loaves are the ones that remind you why you started baking sourdough in the first place. No two loaves are ever the same — and that's exactly the point. Keywords naturally included: homemade sourdough bread, sourdough for beginners, sourdough mistakes, best sourdough recipe, artisan bread at home.`,
     },
@@ -116,6 +122,7 @@ Still struggling? Try dropping your hydration to 65% using the calculator above.
   sv: [
     {
       title: 'Jag byggde det här för svenska bagare. Hälften av er är amerikaner.',
+      date: '2026-04-22',
       content: `Jag byggde det här för svenska bagare. Hälften av er är amerikaner.
 
 Och ärligt talat: det där kanske är min favoritsak med det här lilla projektet.
@@ -136,6 +143,7 @@ Pauline`,
     },
     {
       title: 'Surdegshydrering förklarad: vilken procent passar dig?',
+      date: '2026-03-08',
       image: imgHeroBreadUrl,
       content: `Du följde receptet och limpan blev ändå platt och kompakt. Det gör ont. Ofta är det recepten inte förklarar hydrering — hur mycket vatten degen har i förhållande till mjölet. Många kastar ut en procentsiffra utan att säga vad den betyder för händerna, ugnen eller mackan.
 
@@ -173,6 +181,7 @@ Ditt bästa bröd är bara en deg bort.`,
     },
     {
       title: 'Ett år i surdegsdjungeln — det här funkar i praktiken',
+      date: '2025-12-01',
       content: `Om du någonsin har googlat "hur man bakar surdeg" vet du vad jag menar med djungeln. Autolys eller inte? 65 % hydrering eller 80 %? Mata starter två gånger om dagen eller en gång i veckan? Kalljäs eller rumstemperatur? Gjutjärnsgryta eller baksten? Ett snitt eller fem?
 
 Jag tillbringade mer än ett år med att leta efter det rätta sättet. Jag följde strikta recept från prisbelönta bagare. Jag var i forum där folk grälade om mjölprotein. Jag dödade tre starters. Jag fick limpor som kunde användas som dörrstopp.
@@ -187,6 +196,7 @@ Djungeln känns mindre skrämmande när du har en karta.`,
     },
     {
       title: 'De enda fyra ingredienserna du behöver för riktigt bra surdeg',
+      date: '2025-12-14',
       content: `Mjöl. Vatten. Salt. Surdeg. Det är allt.
 
 Ingen jäst ur påse. Inga tillsatser. Ingen specialutrustning (trots att en gjutjärnsgryta hjälper). Magin med surdeg är att fyra helt vanliga ingredienser, i rätt proportioner och med tillräckligt med tid, blir något extraordinärt.
@@ -203,6 +213,7 @@ Får du de rätt är du nästan i mål. Använd kalkylatorn ovan för dina propo
     },
     {
       title: 'Varför din surdeg inte jäser (och hur du fixar det)',
+      date: '2026-01-02',
       content: `Platt surdeg är nybörjarnas vanligaste problem — och nästan alltid beror det på en av tre saker: för svag starter, underjäsning eller för mycket mjöl i formningen.
 
 Problem 1 — Din starter är inte tillräckligt aktiv. Den ska ungefär fördubblas på 4–8 timmar vid rumstemperatur efter matning. Gör den inte det är den inte redo att lyfta bröd. Lösning: mata med lika delar mjöl och vatten varje dygn några dagar tills den är stabil.
@@ -217,6 +228,7 @@ Fortfarande problem? Prova sänka hydreringen till 65 % i kalkylatorn.`,
     },
     {
       title: 'Brödet jag nästan förstörde (som alla älskade ändå)',
+      date: '2026-03-19',
       image: imgCatUrl,
       content: `Jag glömde mjöla. Snittet blev fult. Skorpan sprack åt alla fel håll — och ändå blev det ett av de bästa bröden jag bakat. Min man sa det. Barnen 6 och 7 år sa det. Till och med katten hoppade upp för att undersöka, vilket hos oss är högsta betyg. Ibland är det de perfekt *imperfekta* limporna som påminner dig om varför du började baka surdeg. Inga två limpor är lika — och det är poängen. Nyckelord: hembakat surdegsbröd, surdeg för nybörjare, vanliga misstag, recept, hantverksbröd hemma.`,
     },
@@ -224,6 +236,7 @@ Fortfarande problem? Prova sänka hydreringen till 65 % i kalkylatorn.`,
   de: [
     {
       title: 'Eigentlich für schwedische Bäcker. Die Hälfte von euch ist aus den USA.',
+      date: '2026-04-22',
       content: `Eigentlich habe ich das für schwedische Bäcker gebaut. Die Hälfte von euch ist aus den USA.
 
 Und ehrlich: Das ist vielleicht mein Lieblingsding an diesem kleinen Projekt.
@@ -244,6 +257,7 @@ Pauline`,
     },
     {
       title: 'Sauerteig-Hydration erklärt: Welcher Prozentsatz passt zu dir?',
+      date: '2026-03-08',
       image: imgHeroBreadUrl,
       content: `Du hast das Rezept befolgt — und das Brot wurde trotzdem flach und fest. Das ärgert. Oft fehlt die Erklärung zur Hydration: wie viel Wasser der Teig im Verhältnis zum Mehl hat. Viele Rezepte nennen eine Zahl, ohne zu sagen, was sie für Hände, Ofen und Brotzeit bedeutet.
 
@@ -281,6 +295,7 @@ Dein bestes Brot ist nur einen Teig entfernt.`,
     },
     {
       title: 'Ein Jahr im Sauerteig-Dschungel — das funktioniert wirklich',
+      date: '2025-12-01',
       content: `Wenn du schon mal „Sauerteig backen“ gegoogelt hast, weißt du, was ich mit Dschungel meine. Autolyse oder nicht? 65 % Hydration oder 80 %? Starter täglich füttern oder wöchentlich? Kalt stellen oder bei Raumtemperatur? Gusseisen oder Stein? Ein oder fünf Schnitte?
 
 Über ein Jahr habe ich nach dem „richtigen“ Weg gesucht. Strikte Rezepte, Foren über Protein im Mehl, drei Starter zu viel gerührt, Brote gebacken, die fast wie Türstopper wirkten.
@@ -295,6 +310,7 @@ Der Dschungel wird weniger unheimlich, wenn du eine Karte hast.`,
     },
     {
       title: 'Die einzigen vier Zutaten für großartigen Sauerteig',
+      date: '2025-12-14',
       content: `Mehl. Wasser. Salz. Starter. Das ist alles.
 
 Keine Hefe aus dem Päckchen. Keine Zusätze. Keine besondere Ausrüstung (ein Gusseisentopf hilft aber). Die Magie: vier einfache Zutaten, in den richtigen Verhältnissen und mit genug Zeit, werden etwas Besonderes.
@@ -311,6 +327,7 @@ Wenn du diese vier Zutaten im Griff hast, fehlt nur noch das Rechnen — oben im
     },
     {
       title: 'Warum dein Sauerteig nicht aufgeht (und was du tun kannst)',
+      date: '2026-01-02',
       content: `Flaches Brot — fast immer einer von drei Gründen: zu schwacher Starter, zu wenig Gärzeit, oder zu viel Mehl beim Formen.
 
 Problem 1 — Starter zu schwach. Er sollte nach dem Füttern bei Raumtemperatur in etwa 4–8 Stunden etwa doppelt so groß werden. Tut er das nicht, ist er nicht bereit zum Triebmittel. Lösung: täglich gleiche Gewichte Mehl und Wasser füttern, bis er zuverlässig aktiv ist.
@@ -325,6 +342,7 @@ Noch Probleme? Probiere 65 % Hydration im Rechner.`,
     },
     {
       title: 'Das Brot, das ich fast ruiniert habe (und alle liebten)',
+      date: '2026-03-19',
       image: imgCatUrl,
       content: `Ich vergaß zu mehlen. Der Schnitt wurde schief. Die Kruste riss — und trotzdem wurde es eines der besten Brote, die ich je gebacken habe. Mein Mann sagte es. Die Kinder (6 und 7) sagten es. Sogar die Katze kam schauen — bei uns das höchste Lob. Manchmal sind die unperfekten Laibe die, die dich erinnern, warum du Sauerteig angefangen hast. Keine zwei Laibe sind gleich — und genau das ist der Punkt.`,
     },

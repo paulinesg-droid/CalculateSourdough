@@ -118,7 +118,10 @@ export interface LocaleStrings {
 
   blogTab?: {
     sectionTitle?: string;
-    posts?: { title: string; content: string; image?: string }[];
+    /** Shown before the post date, e.g. "Published" */
+    datePublishedLabel?: string;
+    /** ISO YYYY-MM-DD, shown with locale-appropriate formatting */
+    posts?: { title: string; content: string; image?: string; date: string }[];
   };
 }
 

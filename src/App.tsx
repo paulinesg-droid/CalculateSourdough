@@ -141,7 +141,7 @@ export default function App() {
           aria-labelledby="tab-blog"
           className={activeTab === 'blog' ? 'block' : 'hidden'}
         >
-          <BlogTab tr={tr} onOpenCalculator={scrollToCalculator} />
+          <BlogTab lang={lang} tr={tr} onOpenCalculator={scrollToCalculator} />
         </div>
 
         <section

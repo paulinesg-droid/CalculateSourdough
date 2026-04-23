@@ -237,6 +237,7 @@ export const de: LocaleStrings = {
   starterLinkToRecipe: 'Schritt-für-Schritt-Anleitung →',
   blogTab: {
     sectionTitle: 'Blog',
+    datePublishedLabel: 'Veröffentlicht',
   },
   footer: 'SourdoughCalculate — für immer kostenlos. Affiliate-Links helfen uns, dieses Tool kostenlos zu halten.',
   footerAmazonDisclaimer:
