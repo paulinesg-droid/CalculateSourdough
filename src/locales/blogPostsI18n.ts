@@ -7,6 +7,24 @@ type BlogPostDef = { title: string; content: string; image?: string };
 export const blogPostsByLang: Record<Lang, BlogPostDef[]> = {
   en: [
     {
+      title: 'I built this for Swedish bakers. Then 54% of you showed up from the US.',
+      content: `I built this for Swedish bakers. Apparently you lot didn't get the memo.
+
+Okay so I just looked at my analytics and over half of you — 54% to be exact — are coming from the US. Another 14% from Canada. I genuinely did not see that coming when I put this together.
+
+This started as me being lazy. I kept doing the same hydration calculations over and over and eventually thought, why am I doing this by hand. So I built a little tool, wrote everything in Swedish, and figured maybe a few hundred people in Scandinavia would use it occasionally.
+
+Somehow it ended up in your hands instead.
+
+I don't really have a grand point here. I just think it's a bit mad that someone in Texas or British Columbia is using something I cobbled together on my couch on the west coast of Sweden. Bread does weird things to people. In a good way.
+
+Anyway — I hope it's actually useful to you. If something doesn't make sense or you want me to add something, let me know. The site is very much a work in progress and apparently I should probably translate more of it into English.
+
+Thanks for being here. Now go bake something.
+
+Pauline`,
+    },
+    {
       title: 'Sourdough hydration explained: which % is right for you?',
       image: imgHeroBreadUrl,
       content: `You followed a recipe and your loaf still came out flat and dense. That stings. Often the piece recipes skip explaining is hydration — how much water is in your dough compared to the flour. Many throw a percentage at you without saying what it means for your hands, your oven, or your lunch.
@@ -95,6 +113,24 @@ Still struggling? Try dropping your hydration to 65% using the calculator above.
   ],
   sv: [
     {
+      title: 'Jag byggde det här för svenska bagare. Hälften av er är i USA.',
+      content: `Jag byggde det här för svenska bagare. Tydligen fick ni andra aldrig meddelandet.
+
+Okej, jag tittade precis på min statistik och mer än hälften av er — 54% exakt — kommer från USA. Ytterligare 14% från Kanada. Jag hade verkligen inte föreställt mig det när jag satte ihop allt här.
+
+Det började med att jag var lat. Jag gjorde samma hydreringsräkningar om och om igen och tillslut tänkte jag: varför räknar jag det här för hand. Så jag byggde ett litet verktyg, skrev allt på svenska och tänkte att några hundra personer i Skandinavien kanske använder det då och då.
+
+På något sätt hamnade det hos er i stället.
+
+Jag har inget stort budskap här. Jag tycker bara det är lite sjukt att någon i Texas eller British Columbia använder något jag snickrade ihop på soffan på västkusten. Bröd får folk att bete sig märkligt. På ett bra sätt.
+
+Hur som helst — jag hoppas att det faktiskt är användbart. Om något är otydligt eller du vill att jag ska lägga till något, hör av dig. Sajten är långt ifrån färdig och tydligen borde jag översätta mer av den till engelska.
+
+Tack för att du är här. Baka något nu.
+
+Pauline`,
+    },
+    {
       title: 'Surdegshydrering förklarad: vilken procent passar dig?',
       image: imgHeroBreadUrl,
       content: `Du följde receptet och limpan blev ändå platt och kompakt. Det gör ont. Ofta är det recepten inte förklarar hydrering — hur mycket vatten degen har i förhållande till mjölet. Många kastar ut en procentsiffra utan att säga vad den betyder för händerna, ugnen eller mackan.
@@ -182,6 +218,24 @@ Fortfarande problem? Prova sänka hydreringen till 65 % i kalkylatorn.`,
     },
   ],
   de: [
+    {
+      title: 'Eigentlich für schwedische Bäcker — dann kamen 54% aus den USA',
+      content: `Eigentlich habe ich das für schwedische Bäcker gebaut. Ihr andern habt die Notiz wohl nicht bekommen.
+
+Ich habe gerade in meine Statistik geschaut: Mehr als die Hälfte von euch — genau 54% — kommt aus den USA. Weitere 14% aus Kanada. Damit hätte ich ehrlich nicht gerechnet, als ich das hier aufgesetzt habe.
+
+Angefangen hat’s mit Faulheit. Ständig dieselbe Hydration ausgerechnet und irgendwann: Warum mache ich das von Hand. Also baute ich ein kleines Tool, schrieb alles auf Schwedisch und dachte, vielleicht ein paar Hundert Leute in Skandinavien, ab und zu.
+
+Auf irgendeine Weise landete es stattdessen bei euch.
+
+Eigentlich wollte ich keinen Vortrag halten. Irre find ich nur, dass jemand in Texas oder British Columbia etwas benutzt, was ich mir auf dem Sofa an der Westküste Schwedens zusammengesetzt habe. Brot bringt Leute dazu, sich merkwürdig zu verhalten. Im guten Sinn.
+
+Wie auch immer — ich hoffe, es nützt euch wirklich. Wenn etwas unklar ist oder du dir etwas wünschst, sag Bescheid. Die Seite ist laufend im Bau, und anscheinend sollte ich mehr ins Englische übersetzen.
+
+Schön, dass du da bist. Jetzt: backen.
+
+Pauline`,
+    },
     {
       title: 'Sauerteig-Hydration erklärt: Welcher Prozentsatz passt zu dir?',
       image: imgHeroBreadUrl,

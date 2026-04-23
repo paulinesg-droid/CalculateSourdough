@@ -1,3 +1,4 @@
+import Giscus from '@giscus/react';
 import { useMemo, useState } from 'react';
 import type { LocaleStrings } from '../types';
 
@@ -87,6 +88,24 @@ export function BlogTab({
             </article>
           );
         })}
+      </div>
+
+      <div
+        className="giscus-container mt-12 min-[390px]:mt-14 max-w-full rounded-[16px] border border-border bg-bg2/95 p-1 shadow-[0_1px_0_rgba(139,69,19,0.08),inset_0_1px_0_rgba(255,255,255,0.45)]"
+        style={{ colorScheme: 'light dark' }}
+      >
+        <div className="rounded-[14px] border border-border/60 bg-gradient-to-b from-white/90 to-bg px-2 py-3 min-[390px]:px-4 min-[390px]:py-5">
+          <Giscus
+            repo="paulinesg-droid/CalculateSourdough"
+            repoId="R_kgDORt6ZMg"
+            category="General"
+            categoryId="DIC_kwDORt6ZMs4C7jVd"
+            mapping="pathname"
+            reactionsEnabled="1"
+            theme="preferred_color_scheme"
+            lang="en"
+          />
+        </div>
       </div>
     </div>
   );
